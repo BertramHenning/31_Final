@@ -11,9 +11,10 @@ public class GUIController {
 		Field[] fields = new Field[40];
 		
 		for (int i = 0; i < 40; i++){
-				fields[i] = new Street.Builder().setTitle(FeltBeskrivelser.fieldNames[i])
+				fields[i] = new Street.Builder().setTitle(FeltBeskrivelser.feltNavne[i])
 						.setDescription("Leje af grund: " + FeltBeskrivelser.Leje[i][0] + " Kr.")
-						.setSubText("" + FeltBeskrivelser.fieldValue[i])
+						.setSubText("" + FeltBeskrivelser.feltVærdi[i])
+						.setBgColor(FeltBeskrivelser.feltFarve[i])
 						.build();
 		}
 		
