@@ -10,4 +10,13 @@ public class Ejendom extends Felt {
 		this.ejer = null;
 
 	}
+
+	public Spiller getEjer() {
+		return ejer;
+	}
+
+	public void setEjer(Spiller ejer) {
+		this.ejer = ejer;
+	}
+	
 }
