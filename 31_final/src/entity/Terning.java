@@ -9,7 +9,7 @@ public class Terning {
 	}
 
 	/**
-	 * Randomizes value from 1-6
+	 * Tilfældig værdi mellem 1-6
 	 */
 	public void rul() {
 		float d1 = (float) Math.random();
