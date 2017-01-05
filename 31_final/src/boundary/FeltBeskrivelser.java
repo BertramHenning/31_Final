@@ -1,8 +1,10 @@
 package boundary;
 
+import java.awt.Color;
+
 public class FeltBeskrivelser {
 	// Laver et array med felt navne
-	public static String[] fieldNames = {
+	public static String[] feltNavne = {
 				"Start",
 				"Rødovrevej",
 				"Prøv lykken",
@@ -44,7 +46,7 @@ public class FeltBeskrivelser {
 				"Ekstraordinær statsskat",
 				"Rådhuspladsen"
 				};	
-	public static int[] fieldValue = {
+	public static int[] feltVærdi = {
 			0,
 			1200,
 			0,
@@ -86,6 +88,49 @@ public class FeltBeskrivelser {
 			2000,
 			8000
 			};
+	
+	public static Color[] feltFarve = {
+			Color.getHSBColor((float) 0,(float) 0.95,(float) 0.92), // Start Felt (1)
+			Color.getHSBColor((float)0.630,(float) 0.73,(float) 0.57), // Rødovrevej (2)
+			Color.getHSBColor((float)0,(float) 0,(float) 0), // Prøv lykken (3)
+			Color.getHSBColor((float)0.630,(float) 0.73,(float) 0.57), // Hvidovrevej (4)
+			Color.getHSBColor((float)0.07,(float) 0.76,(float) 0.40), // Indkomst skat (5)
+			Color.getHSBColor((float)0.65,(float) 1.00,(float) 0.70), // Rederi (6)
+			Color.getHSBColor((float)0.07,(float) 1.00,(float) 0.89), // Roskildevej (7)
+			Color.getHSBColor((float)0,(float) 0,(float) 0), // Prøv lykken (8)
+			Color.getHSBColor((float)0.07,(float) 1.00,(float) 0.89), // Valby Langgade (9)
+			Color.getHSBColor((float)0.07,(float) 1.00,(float) 0.89), // Allégade (10)
+			Color.getHSBColor((float)0,(float) 0,(float) 0), // På besøg (11)
+			Color.getHSBColor((float)0.19,(float) 0.72,(float) 0.92), // Frederiksberg Allé (12)
+			Color.getHSBColor((float) 0,(float) 0.95,(float) 0.92), // Squash (13)
+			Color.getHSBColor((float)0.19,(float) 0.72,(float) 0.92), // Bülowsvej (14)
+			Color.getHSBColor((float)0.19,(float) 0.72,(float) 0.92), // Gl. Kongevej (15)
+			Color.getHSBColor((float) 0,(float) 0.95,(float) 0.92), // Rederi (16)
+			Color.getHSBColor((float) 0.177,(float) 0.058,(float) 0.72), // Bernstorffsvej (17)
+			Color.getHSBColor((float)0,(float) 0,(float) 0), // Prøv lykken (18)
+			Color.getHSBColor((float) 0.177,(float) 0.058,(float) 0.72), // Hellerupvej (19)
+			Color.getHSBColor((float) 0.177,(float) 0.058,(float) 0.72), // Strandvejen (20)
+			Color.getHSBColor((float) 0.525,(float) 0.62,(float) 0.88), // Parkering (21)
+			Color.getHSBColor((float) 0,(float) 0.95,(float) 0.92), // Trianglen (22)
+			Color.getHSBColor((float)0,(float) 0,(float) 0), // Prøv lykken (23)
+			Color.getHSBColor((float) 0,(float) 0.95,(float) 0.92), // Østerbrogade (24)
+			Color.getHSBColor((float) 0,(float) 0.95,(float) 0.92), // Grønningen (25)
+			Color.getHSBColor((float) 0,(float) 0.95,(float) 0.92), // Rederi (26)
+			Color.getHSBColor((float) 0,(float) 0,(float) 1.00), // Bredgade (27)
+			Color.getHSBColor((float) 0,(float) 0,(float) 1.00), // Kgs. Nytorv (28)
+			Color.getHSBColor((float) 0,(float) 0.95,(float) 0.92), // Coca Cola (29)
+			Color.getHSBColor((float) 0,(float) 0,(float) 1.00), // Østergade (30)
+			Color.getHSBColor((float)0,(float) 0,(float) 0), // De fængsles (31)
+			Color.getHSBColor((float)0.147,(float) 1.00,(float) 1.00), // Amagertorv (32)
+			Color.getHSBColor((float)0.147,(float) 1.00,(float) 1.00), // Vimmelskaftet (33)
+			Color.getHSBColor((float)0,(float) 0,(float) 0), // Prøv lykken (34)
+			Color.getHSBColor((float)0.147,(float) 1.00,(float) 1.00), // Nyborg (35)
+			Color.getHSBColor((float) 0,(float) 0.95,(float) 0.92), // Rederi (36)
+			Color.getHSBColor((float)0,(float) 0,(float) 0), // Prøv lykken (37)
+			Color.getHSBColor((float)0.86,(float) 0.58,(float) 0.68), // Frederiksberggade (38)
+			Color.getHSBColor((float)0.07,(float) 0.76,(float) 0.40), // Indkomst skat (39)
+			Color.getHSBColor((float)0.86,(float) 0.58,(float) 0.68), // Ekstraordinær statsskat (40)
+	};
 
 
 }
