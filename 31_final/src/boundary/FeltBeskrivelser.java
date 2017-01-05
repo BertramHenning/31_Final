@@ -7,8 +7,8 @@ public class FeltBeskrivelser {
 				"Rødovrevej",
 				"Prøv lykken",
 				"Hvidovrevej", 
-				"Indkomst skat",
-				"Scandlines Helsingør-Helsingborg", 
+				"Betal indkomstskat:",
+				"Scandlines H-H", 
 				"Roskildevej",
 				"Prøv lykken", 
 				"Valby Langgade", 
@@ -28,7 +28,7 @@ public class FeltBeskrivelser {
 				"Prøv lykken",
 				"Østerbrogade",
 				"Grønningen",
-				"Scandlines Gedser-Rostock",
+				"Scandlines G-R",
 				"Bredgade",
 				"Kgs.Nytorv",
 				"Coca-Cola",
@@ -38,10 +38,10 @@ public class FeltBeskrivelser {
 				"Vimmelskaftet",
 				"Prøv lykken",
 				"Nygade",
-				"Scandlines Rødby-Puttgarden",
+				"Scandlines R-P",
 				"Prøv lykken",
-				"Frederiksberggade",
-				"Ekstraordinær statsskat",
+				"Frederiksberg gade",
+				"Betal statsskat",
 				"Rådhuspladsen"
 				};	
 	public static int[] fieldValue = {
@@ -87,5 +87,54 @@ public class FeltBeskrivelser {
 			8000
 			};
 
+	
+	
+	public static int [][] Leje = new int [][]{
+		{0}, 
+		{50, 250, 750, 2250, 4000, 6000},
+		{0},
+		{50, 250, 750, 2250, 4000, 6000},
+		{0},
+		{500, 1000, 2000, 4000},
+		{100, 600, 1800, 5400, 8000, 11000},
+		{0},
+		{100, 600, 1800, 5400, 8000, 11000},
+		{150, 800, 2000, 6000, 9000, 12000},
+		{0},
+		{200, 1000, 3000, 9000, 12500, 15000},
+		{0},
+		{200, 1000, 3000, 9000, 12500, 15000},
+		{250, 1250, 3750, 10000, 14000, 18000},
+		{500, 1000, 2000, 4000},
+		{300, 1400, 4000, 11000, 15000, 19000},
+		{0},
+		{300, 1400, 4000, 11000, 15000, 19000},
+		{350, 1600, 4400, 12000, 16000, 20000},
+		{0},
+		{350, 1800, 5000, 14000, 17500, 21000},
+		{0},
+		{350, 1800, 5000, 14000, 17500, 21000},
+		{400, 2000, 6000, 15000, 18000, 22000},
+		{500, 1000, 2000, 4000},
+		{450, 2200, 6600, 16000, 19500, 23000},
+		{450, 2200, 6600, 16000, 19500, 23000},
+		{0},
+		{500, 2400, 7200, 17000, 20500, 24000},
+		{0},
+		{550, 2600, 7800, 18000, 22000, 25000},
+		{550, 2600, 7800, 18000, 22000, 25000},
+		{0},
+		{600, 3000, 9000, 20000, 24000, 28000},
+		{500, 1000, 2000, 4000},
+		{0},
+		{700, 3500, 10000, 22000, 26000, 30000},
+		{0},
+		{1000, 4000, 12000, 28000, 34000, 40000}
+	};
+		
+			
+	}
+	
+	
 
-}
+
