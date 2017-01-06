@@ -106,4 +106,62 @@ public class GUIController {
 		GUI.setDice(1, 2);
 
 }
+	
+	/**
+	 * Adds a player to the GUI
+	 */
+	public void tilføjSpiller(String navn){
+		GUI.addPlayer(navn, 30000);
+	}
+	
+	/**
+	 * Removes a car from the GUI
+	 */
+	public void fjernBil(String navn){
+		GUI.removeAllCars(navn);
+	}
+	
+	/**
+	 * Moves a car on the GUI
+	 */
+	public void flytBil(String navn, int position){
+		GUI.removeAllCars(navn);
+		GUI.setCar(position, navn);
+	}
+	
+	/**
+	 * Displays the players balance on the GUI
+	 */
+	public void visPengebeholdning(String navn, int balance){
+		GUI.setBalance(navn, balance);
+	}
+	
+	/**
+	 * Shows a message on the GUI
+	 */
+	public void visBesked(String Besked){
+		GUI.showMessage(Besked);
+	}
+	
+	/**
+	 * Asks the player a yes or no question on the GUI
+	 */
+	public boolean spørgSandtFalsk(String Besked){
+		return GUI.getUserLeftButtonPressed(Besked, "Ja", "Nej");
+	}
+
+	/**
+	 * Asks the player for an amount on the GUI
+	 */
+	public int spørgBeløb(String Besked, int min, int max){
+		return GUI.getUserInteger(Besked, min, max);
+	}
+
+	/**
+	 * Asks the player for a string on the GUI
+	 */
+	public String spørgString(String Besked){
+		return GUI.getUserString(Besked);
+	}
+
 }
