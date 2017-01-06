@@ -7,6 +7,9 @@ import desktop_resources.GUI;
 import desktop_fields.Chance;
 import desktop_fields.Tax;
 import desktop_fields.Shipping;
+
+import java.awt.Color;
+
 import desktop_fields.Brewery;
 import desktop_fields.Jail;
 import desktop_fields.Refuge;
@@ -26,6 +29,7 @@ public class GUIController {
 			case 36:
 				fields[i] = new Chance.Builder()
 						.setBgColor(FeltBeskrivelser.feltFarve[i])
+						.setFgColor(Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63))
 						.build();
 				break;
 			case 4:
