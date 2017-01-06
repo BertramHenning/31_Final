@@ -4,7 +4,7 @@ import boundary.FeltBeskrivelser;
 
 public class SpilleBræt {
 
-	Felt[] felter = new Felt[40];
+	private Felt[] felter = new Felt[40];
 
 	public SpilleBræt() {
 		for (int i = 0; i < 40; i++) {

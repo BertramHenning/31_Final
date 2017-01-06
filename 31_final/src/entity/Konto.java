@@ -8,7 +8,7 @@ public class Konto {
 		Kroner = 30000;
 	}
 
-	public int fåKroner(){
+	public int getKroner(){
 		return Kroner;
 	}
 	
