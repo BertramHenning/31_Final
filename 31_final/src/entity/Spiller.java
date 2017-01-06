@@ -2,13 +2,13 @@ package entity;
 
 public class Spiller {
 	
-	private String navn;
+	private String navne;
 	private int position = 0, ekstraTur, fængsel, sum;
 	
 	private Konto kroner;
 	
 	public Spiller(String a){
-		navn = a;
+		navne = a;
 		kroner = new Konto();
 	}
 		
@@ -24,11 +24,11 @@ public class Spiller {
 	}
 
 	public String getNavn() {
-		return navn;
+		return navne;
 	}
 
 	public void setNavn(String navn) {
-		this.navn = navn;
+		this.navne = navn;
 	}
 
 	public int getPosition() {

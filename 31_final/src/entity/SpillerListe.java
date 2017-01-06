@@ -1,65 +1,95 @@
 package entity;
 
+/**
+ * Keeps track of a list of players
+ */
 public class SpillerListe {
-	private int SpillerTal;
+	private int antalSpillere;
+
 	private Spiller[] liste;
-	
-	public SpillerListe(int SpillerTal, String[] navne){
-		this.SpillerTal = SpillerTal;
-		liste = new Spiller[SpillerTal];
-		for(int i = 0; i <  SpillerTal; i++){
-			liste[i] = new Spiller(navne[i]);
+
+	public SpillerListe(int antalSpillere, String[] navn) {
+		this.antalSpillere = antalSpillere;
+		liste = new Spiller[antalSpillere];
+		for (int i = 0; i < antalSpillere; i++) {
+			liste[i] = new Spiller(navn[i]);
 		}
 	}
-	
-	public void tilføjKroner(int Spiller, int mængde){
-		liste[Spiller].tilføjKroner(mængde);
-	}
 
-	public int getKroner(int Spiller){
-		return liste[Spiller].getKroner();
-	}
-	
-	public Spiller[] getListe() {
-		return liste;
-	}
-
-	public void setListe(Spiller[] liste) {
-		this.liste = liste;
-	}
-
-	public int getPosition(int Spiller){
-		return liste[Spiller].getPosition();
+	/**
+	 *Adds coins to a specific player
+	 */
+	public void tilføjKroner(int spiller, int beløb) {
+		liste[spiller].tilføjKroner(beløb);
 	}
 	
-	public void flytPosition(int Spiller, int mængde){
-		liste[Spiller].flytPosition(mængde);
+	/**
+	 *Gets coins from a specific player
+	 */
+	public int getKroner(int player) {
+		return liste[player].getKroner();
 	}
 	
-	public int getTerningeSum(int Spiller){
-		return liste[Spiller].getSum();
+	/**
+	 *Gets position from a specific player
+	 */
+	public int getPosition(int player) {
+		return liste[player].getPosition();
 	}
 
-	public void setTerningeSum(){
-		
-	}
-
-	public int getSpillerTal() {
-		return SpillerTal;
+	/**
+	 *Moves a specific player
+	 */
+	public void setPosition(int player, int amount) {
+		liste[player].setPosition(amount);
 	}
 	
-	public void fjernSpiller(int Spiller){
-		Spiller[] nyListe = new Spiller[SpillerTal - 1];
+	/**
+	 *Removes a player from the list and makes i shorter
+	 */
+	public void removePlayer(int player){
+		Spiller[] newlist = new Spiller[antalSpillere-1];
 		int j = 0;
-		for (int i = 0; i < SpillerTal; i++){
-			if (i != Spiller)
-				nyListe[j] = liste[i];
-			j++;
+		for (int i = 0; i < antalSpillere; i++){
+			if (i != player){
+				newlist[j] = liste[i];
+				j++;
+			}
 		}
+		liste = newlist;
+		antalSpillere--;
 	}
 
-	public void setSpillerTal(int spillerTal) {
-		SpillerTal = spillerTal;
+	public int getPlayerAmount() {
+		return antalSpillere;
 	}
 
+	public void setPlayerAmount(int playerAmount) {
+		this.antalSpillere = playerAmount;
+	}
+	
+	/**
+	 *Gets diceSum from a specific player
+	 */
+	public int getSum(int a){
+		return liste[a].getSum();
+	}
+	
+	/**
+	 *Sets diceSum of a specific player
+	 */
+	public void setSum(int player, int sum){
+		liste[player].setSum(sum);
+	}
+	
+	/**
+	 *Gets name from a specific player
+	 */
+	public String getNavn(int a){
+		return liste[a].toString();
+	}
+	
+	public Spiller getSpiller(int a){
+		return liste[a];
+	}
 }
