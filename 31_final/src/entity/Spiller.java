@@ -3,7 +3,7 @@ package entity;
 public class Spiller {
 	
 	private String navn;
-	private int position = 0, ekstraTur, fængsel;
+	private int position = 0, ekstraTur, fængsel, sum;
 	
 	private Konto kroner;
 	
@@ -53,6 +53,18 @@ public class Spiller {
 
 	public void setFængsel(int fængsel) {
 		this.fængsel = fængsel;
+	}
+
+	public int getKroner() {
+		return kroner.getKroner();
+	}
+
+	public int getSum() {
+		return sum;
+	}
+
+	public void setSum(int sum) {
+		this.sum = sum;
 	}
 	
 

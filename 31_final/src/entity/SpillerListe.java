@@ -17,7 +17,7 @@ public class SpillerListe {
 	}
 
 	public int getKroner(int Spiller){
-		return liste[Spiller].fåKroner();
+		return liste[Spiller].getKroner();
 	}
 	
 	public Spiller[] getListe() {
