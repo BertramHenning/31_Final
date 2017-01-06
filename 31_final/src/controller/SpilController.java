@@ -40,14 +40,14 @@ public class SpilController {
 
 	public void tilføjSpiller() {
 		int antalSpillere = gui.spørgBeløb("Indtast antal spillere: ", 3, 6);
-		String[] navn = new String[antalSpillere];
+		String[] navne = new String[antalSpillere];
 		for (int i = 0; i < antalSpillere; i++) {
 			//Tests if the new name is the same as another players name
 			while(true){
 				boolean sammeNavn = false;
-				navn[i] = gui.spørgString("Spiller " + (i + 1) + " indtast dit navn:");
+				navne[i] = gui.spørgString("Spiller " + (i + 1) + " indtast dit navn:");
 				for (int j = 0; j < i; j++){
-					if (navn[i].equals(navn[j])){
+					if (navne[i].equals(navne[j])){
 						sammeNavn = true;
 						gui.visBesked("Du kan ikke have det samme navn.");
 					}
@@ -57,7 +57,7 @@ public class SpilController {
 				}
 			}
 		}
-		liste = new SpillerListe(antalSpillere, navn);
+		liste = new SpillerListe(antalSpillere, navne);
 	}
 	
 	
