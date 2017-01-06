@@ -43,8 +43,8 @@ public class GUIController {
 			case 35:
 				fields[i] = new Shipping.Builder()
 						.setTitle(FeltBeskrivelser.feltNavne[i])
-						.setSubText(" " + FeltBeskrivelser.feltVærdi[i])
-						.setDescription("Leje af grund: " + FeltBeskrivelser.Leje[i][0] + " kr.")
+						.setSubText("" + FeltBeskrivelser.feltVærdi[i])
+						.setDescription("Leje af grund: " + FeltBeskrivelser.Leje[i][0] + " kr." + '\n' + "Leje ved 2 rederier: " + FeltBeskrivelser.Leje[i][1] + " kr." + '\n' + "Leje ved 3 rederier: " + FeltBeskrivelser.Leje[i][2] + " kr." + '\n' + "Leje ved 4 rederier: " + FeltBeskrivelser.Leje[i][3] + " kr.")
 						.setBgColor(FeltBeskrivelser.feltFarve[i])
 						.build();
 				break;
@@ -85,7 +85,7 @@ public class GUIController {
 				fields[i] = new Street.Builder()
 						.setTitle(FeltBeskrivelser.feltNavne[i])
 						.setBgColor(FeltBeskrivelser.feltFarve[i])
-						.setDescription("Leje af grund: " + FeltBeskrivelser.Leje[i][0] + " Kr.")
+						.setDescription("Leje af grund: " + FeltBeskrivelser.Leje[i][0] + " Kr." + '\n' + "Leje m/ 1 hus: " + FeltBeskrivelser.Leje[i][1] + " Kr." + '\n' +  "Leje med 2 huse: " + FeltBeskrivelser.Leje[i][2] + " Kr." + '\n' +  "Leje med 3 huse: " + FeltBeskrivelser.Leje[i][3] + " Kr." + '\n' +  "Leje med 4 huse: " + FeltBeskrivelser.Leje[i][4] + " Kr." + '\n' +  "Leje med hotel: " + FeltBeskrivelser.Leje[i][5] + "kr." )
 						.setSubText(" " + FeltBeskrivelser.feltVærdi[i])
 						.build();	
 				break;
@@ -94,11 +94,7 @@ public class GUIController {
 				
 				
 			}
-//				fields[i] = new Street.Builder().setTitle(FeltBeskrivelser.feltNavne[i])
-//						.setDescription("Leje af grund: " + FeltBeskrivelser.Leje[i][0] + " Kr.") 
-//						.setSubText("" + FeltBeskrivelser.feltVærdi[i])
-//						.setBgColor(FeltBeskrivelser.feltFarve[i])
-//						.build();
+
 		}
 		
 		GUI.create(fields);
