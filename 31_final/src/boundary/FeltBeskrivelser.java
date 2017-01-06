@@ -46,6 +46,7 @@ public class FeltBeskrivelser {
 				"Betal statsskat",
 				"Rådhuspladsen"
 				};	
+	// Laver et array med felt værdier
 	public static int[] feltVærdi = {
 			0,
 			1200,
@@ -89,6 +90,7 @@ public class FeltBeskrivelser {
 			8000
 			};
 	
+	// Laver et array med feltfarver
 	public static Color[] feltFarve = {
 			Color.getHSBColor((float) 0,(float) 0.95,(float) 0.92), // Start Felt (1)
 			Color.getHSBColor((float)0.630,(float) 0.73,(float) 0.57), // Rødovrevej (2)
@@ -132,8 +134,17 @@ public class FeltBeskrivelser {
 			Color.getHSBColor((float)0.86,(float) 0.58,(float) 0.68), // Ekstraordinær statsskat (40)
 	};
 
+	// Laver et array med tekst farve
+	public static Color[] tekstFarve = {
+			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (3)
+			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (8)
+			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (18)
+			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (23)
+			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (34)
+			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (37)
+	};
 	
-	
+	// Laver et array med felt leje
 	public static int [][] Leje = new int [][]{
 		{0}, 
 		{50, 250, 750, 2250, 4000, 6000},
