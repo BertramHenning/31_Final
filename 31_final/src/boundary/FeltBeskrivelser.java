@@ -133,16 +133,6 @@ public class FeltBeskrivelser {
 			Color.getHSBColor((float)0.07,(float) 0.76,(float) 0.40), // Indkomst skat (39)
 			Color.getHSBColor((float)0.86,(float) 0.58,(float) 0.68), // Ekstraordinær statsskat (40)
 	};
-
-	// Laver et array med tekst farve
-	public static Color[] tekstFarve = {
-			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (3)
-			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (8)
-			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (18)
-			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (23)
-			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (34)
-			Color.getHSBColor((float) 0.305,(float) 1.00,(float) 0.63), // Prøv lykken (37)
-	};
 	
 	// Laver et array med felt leje
 	public static int [][] Leje = new int [][]{
