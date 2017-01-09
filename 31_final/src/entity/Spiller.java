@@ -67,6 +67,9 @@ public class Spiller {
 		this.sum = sum;
 	}
 	
+	public String toString() {
+		return navn;
+	}
 
 	}
 	
