@@ -5,7 +5,8 @@ public class Ejendom extends Felt {
 	protected int pris;
 	protected Spiller ejer;
 
-	public Ejendom(int pris) {
+	public Ejendom(String navn, int pris) {
+		super(navn);
 		this.pris = pris;
 		this.ejer = null;
 

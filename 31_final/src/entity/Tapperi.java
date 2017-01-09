@@ -2,8 +2,8 @@ package entity;
 
 public class Tapperi extends Ejendom {
 
-	public Tapperi(int pris) {
-		super(pris);
+	public Tapperi(String navn, int pris) {
+		super(navn, pris);
 		
 	}
 
