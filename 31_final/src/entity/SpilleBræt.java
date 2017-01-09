@@ -15,30 +15,30 @@ public class SpilleBræt {
 			case 22:
 			case 33:
 			case 36:
-				felter[i] = new PrøvLykken();
+				felter[i] = new PrøvLykken(FeltBeskrivelser.feltNavne[i]);
 				break;
 			case 4:
 			case 38:
-				felter[i] = new Skat(FeltBeskrivelser.feltVærdi[i]);
+				felter[i] = new Skat(FeltBeskrivelser.feltNavne[i], FeltBeskrivelser.feltVærdi[i]);
 				break;
 			case 5:
 			case 15:
 			case 25:
 			case 35:
-				felter[i] = new Rederi(FeltBeskrivelser.feltVærdi[i]);
+				felter[i] = new Rederi(FeltBeskrivelser.feltNavne[i], FeltBeskrivelser.feltVærdi[i]);
 				break;
 			case 12:
 			case 28:
-				felter[i] = new Tapperi(FeltBeskrivelser.feltVærdi[i]);
+				felter[i] = new Tapperi(FeltBeskrivelser.feltNavne[i], FeltBeskrivelser.feltVærdi[i]);
 				break;
 			case 10:
 			case 30:
 			case 0:
 			case 20:
-				felter[i] = new Fri();
+				felter[i] = new Fri(FeltBeskrivelser.feltNavne[i]);
 				break;
 			default:
-				felter[i] = new Grund(FeltBeskrivelser.feltVærdi[i], i / 5, FeltBeskrivelser.Leje[i]);
+				felter[i] = new Grund(FeltBeskrivelser.feltNavne[i], FeltBeskrivelser.feltVærdi[i], i / 5, FeltBeskrivelser.Leje[i]);
 				break;
 
 			}
@@ -52,5 +52,5 @@ public class SpilleBræt {
 	public void setFelter(Felt[] felter) {
 		this.felter = felter;
 	}
-	
+
 }

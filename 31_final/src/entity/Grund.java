@@ -5,8 +5,8 @@ public class Grund extends Ejendom {
 	private int huse = 0, gruppe;
 	private int[] leje;
 
-	public Grund(int pris, int gruppe, int[] leje) {
-		super(pris);
+	public Grund(String navn, int pris, int gruppe, int[] leje) {
+		super(navn, pris);
 		this.gruppe = gruppe;
 		this.leje = leje;
 	}
