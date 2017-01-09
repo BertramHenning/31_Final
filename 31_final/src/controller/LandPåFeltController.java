@@ -4,6 +4,7 @@ import boundary.GUIController;
 import desktop_resources.GUI;
 import entity.Ejendom;
 import entity.Felt;
+import entity.Grund;
 import entity.Spiller;
 
 public class LandPåFeltController {
@@ -50,23 +51,54 @@ public class LandPåFeltController {
 			}
 
 		} else if (felt.getClass().getSimpleName().equals("PrøvLykken")) {
-
+			//////// LAV NOGET//////////////////
 		} else {
-			Ejendom a = (Ejendom) felt;
-			if (a.getEjer() == null && spiller.getKroner() > a.getPris()) {
+			Ejendom felt1 = (Ejendom) felt;
+			if (felt1.getEjer() == null && spiller.getKroner() > felt1.getPris()) {
 				// Lets the player buy the field if there is no owner and the
 				// player has enough coins
-				if (GUI.getUserLeftButtonPressed("Vil du købe " + a.getNavn() + " for " + a.getPris() + " kr.", "Ja", "Nej")) {
-					a.setEjer(spiller);
-					spiller.tilføjKroner(-a.getPris());
+				if (GUI.getUserLeftButtonPressed("Vil du købe " + felt1.getNavn() + " for " + felt1.getPris() + " kr.",
+						"Ja", "Nej")) {
+					felt1.setEjer(spiller);
+					spiller.tilføjKroner(-felt1.getPris());
 				}
-			} else if (a.getEjer() == null) {
+			} else if (felt1.getEjer() == null) {
 				GUI.showMessage("Du har ikke nok penge til at købe denne ejendom.");
-			} else if (a.getEjer().equals(spiller)) {
+			} else if (felt1.getEjer().equals(spiller)) {
 				GUI.showMessage("Du har landet på din ejen ejedom.");
 			} else {
-				if ()
+				if (felt.getClass().getSimpleName().equals("Tapperi")) {
+					//hej bank, har ejeren 2?
+					if(felt1.getEjer().getFængsel()== 1){
+						int a = spiller.getSum()*200;
+						felt1.getEjer().tilføjKroner(a);
+						spiller.tilføjKroner(-a);
+					} else {
+						int a = spiller.getSum()*100;
+						felt1.getEjer().tilføjKroner(a);
+						spiller.tilføjKroner(-a);
+					}
+				} else if (felt.getClass().getSimpleName().equals("Rederi")) {
+					//hej bank, hvor mange har ejeren?
+					int a = 3;
+					felt1.getEjer().tilføjKroner(250 *(int) Math.pow(2, a));
+					spiller.tilføjKroner(-a);
+				} else {
+					Grund felt2 = (Grund) felt1;
+					//har han alle?
+					//nej
+					if(felt2.getEjer().getFængsel()== 1){
+						int a = felt2.getLeje(0);
+						felt2.getEjer().tilføjKroner(a);
+						spiller.tilføjKroner(-a);
+					} else {
+						int huse = 3; //antal huse!!!
+						int a = felt2.getLeje(huse);
+						felt2.getEjer().tilføjKroner(a);
+						spiller.tilføjKroner(-a);
+					}
 
+				}
 			}
 
 		}
