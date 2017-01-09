@@ -14,8 +14,10 @@ public class Spiller {
 		
 	public void flytPosition(int mængde){
 		this.position += mængde;
-		if(this.position > 40)
+		if(this.position > 40){
 			this.position = this.position - 40;
+			tilføjKroner(4000);
+		}
 	}
 	
 	
