@@ -38,7 +38,7 @@ public class SpilleBræt {
 				felter[i] = new Fri();
 				break;
 			default:
-				felter[i] = new Grund(FeltBeskrivelser.feltVærdi[i], i / 5 + 1, FeltBeskrivelser.Leje[i]);
+				felter[i] = new Grund(FeltBeskrivelser.feltVærdi[i], i / 5, FeltBeskrivelser.Leje[i]);
 				break;
 
 			}
