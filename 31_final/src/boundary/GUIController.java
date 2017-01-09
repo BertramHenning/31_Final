@@ -163,5 +163,13 @@ public class GUIController {
 	public String spørgString(String Besked){
 		return GUI.getUserString(Besked);
 	}
+	
+	public String vælgString(String besked, String valg1, String valg2){
+		return GUI.getUserSelection(besked, valg1, valg2);
+	}
+	
+	public String vælgString(String besked, String valg1, String valg2, String valg3){
+		return GUI.getUserSelection(besked, valg1, valg2, valg3);
+	}
 
 }
