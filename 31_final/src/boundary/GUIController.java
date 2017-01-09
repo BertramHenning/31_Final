@@ -78,12 +78,12 @@ public class GUIController {
 				.build();
 				break;
 			case 20:
-					fields[i] = new Refuge.Builder()
-						.setTitle(FeltBeskrivelser.feltNavne[i])
-						.setSubText("Parkering")
-						.setBgColor(FeltBeskrivelser.feltFarve[i])
-						.setDescription("Hold en pause")
-						.build();
+				fields[i] = new Refuge.Builder()
+				.setTitle(FeltBeskrivelser.feltNavne[i])
+				.setSubText("Parkering")
+				.setBgColor(FeltBeskrivelser.feltFarve[i])
+				.setDescription("Hold en pause")
+				.build();
 				break;
 			default:
 				fields[i] = new Street.Builder()
@@ -163,22 +163,26 @@ public class GUIController {
 	public String spørgString(String Besked){
 		return GUI.getUserString(Besked);
 	}
-	
+
 
 	public String vælgString(String besked, String valg1, String valg2){
 		return GUI.getUserSelection(besked, valg1, valg2);
 	}
-	
+
 	public String vælgString(String besked, String valg1, String valg2, String valg3){
 		return GUI.getUserSelection(besked, valg1, valg2, valg3);
-
-	public void setHus (int position, int antalHuse) {
-		GUI.setHouses(position + 1, antalHuse);
-	}
-	
-	public void setHotel (int position, boolean hotel) {
-		GUI.setHotel(position + 1, hotel);
-
 	}
 
+
+	public void setHusHotel (int position, int antalHuse){
+
+		if (antalHuse > 4){
+			GUI.setHotel(position, true);
+		}
+		else {
+			GUI.setHouses(position, antalHuse);
+
+		}
+
+	}
 }
