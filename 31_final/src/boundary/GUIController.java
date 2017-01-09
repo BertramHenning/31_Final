@@ -163,5 +163,13 @@ public class GUIController {
 	public String spørgString(String Besked){
 		return GUI.getUserString(Besked);
 	}
+	
+	public void setHus (int position, int antalHuse) {
+		GUI.setHouses(position + 1, antalHuse);
+	}
+	
+	public void setHotel (int position, boolean hotel) {
+		GUI.setHotel(position + 1, hotel);
+	}
 
 }
