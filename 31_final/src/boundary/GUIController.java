@@ -75,6 +75,7 @@ public class GUIController {
 						.setTitle(FeltBeskrivelser.feltNavne[i])
 						.setSubText("Start")
 						.setBgColor(FeltBeskrivelser.feltFarve[i])
+						.setDescription("Ved passering af start modtag 4000 kr.")
 						.build();
 				}
 				else
@@ -82,7 +83,7 @@ public class GUIController {
 						.setTitle(FeltBeskrivelser.feltNavne[i])
 						.setSubText("Parkering")
 						.setBgColor(FeltBeskrivelser.feltFarve[i])
-						.setDescription(" " + FeltBeskrivelser.Leje[i][0])
+						.setDescription("Hold en pause")
 						.build();
 				break;
 			default:
