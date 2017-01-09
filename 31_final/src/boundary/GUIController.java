@@ -13,6 +13,7 @@ import java.awt.Color;
 import desktop_fields.Brewery;
 import desktop_fields.Jail;
 import desktop_fields.Refuge;
+import desktop_fields.Start;
 
 public class GUIController {
 	
@@ -69,16 +70,14 @@ public class GUIController {
 						.build();
 				break;
 			case 0:
+				fields[i] = new Start.Builder()
+				.setTitle(FeltBeskrivelser.feltNavne[i])
+				.setSubText("Start")
+				.setBgColor(FeltBeskrivelser.feltFarve[i])
+				.setDescription("Ved passering af start modtag 4000 kr.")
+				.build();
+				break;
 			case 20:
-				if(i == 0){
-					fields[i] = new Refuge.Builder()
-						.setTitle(FeltBeskrivelser.feltNavne[i])
-						.setSubText("Start")
-						.setBgColor(FeltBeskrivelser.feltFarve[i])
-						.setDescription("Ved passering af start modtag 4000 kr.")
-						.build();
-				}
-				else
 					fields[i] = new Refuge.Builder()
 						.setTitle(FeltBeskrivelser.feltNavne[i])
 						.setSubText("Parkering")
