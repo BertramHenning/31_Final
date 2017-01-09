@@ -164,12 +164,21 @@ public class GUIController {
 		return GUI.getUserString(Besked);
 	}
 	
+
+	public String vælgString(String besked, String valg1, String valg2){
+		return GUI.getUserSelection(besked, valg1, valg2);
+	}
+	
+	public String vælgString(String besked, String valg1, String valg2, String valg3){
+		return GUI.getUserSelection(besked, valg1, valg2, valg3);
+
 	public void setHus (int position, int antalHuse) {
 		GUI.setHouses(position + 1, antalHuse);
 	}
 	
 	public void setHotel (int position, boolean hotel) {
 		GUI.setHotel(position + 1, hotel);
+
 	}
 
 }

@@ -19,4 +19,8 @@ public class Ejendom extends Felt {
 		this.ejer = ejer;
 	}
 	
+	public int getPris(){
+		return pris;
+	}
+	
 }

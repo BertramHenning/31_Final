@@ -23,8 +23,8 @@ public class Grund extends Ejendom {
 		return gruppe;
 	}
 
-	public int[] getLeje() {
-		return leje;
+	public int getLeje(int a) {
+		return leje[a];
 	}
 	
 	
