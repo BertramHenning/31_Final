@@ -13,6 +13,7 @@ import java.awt.Color;
 import desktop_fields.Brewery;
 import desktop_fields.Jail;
 import desktop_fields.Refuge;
+import desktop_fields.Start;
 
 public class GUIController {
 
@@ -69,21 +70,20 @@ public class GUIController {
 				.build();
 				break;
 			case 0:
+				fields[i] = new Start.Builder()
+				.setTitle(FeltBeskrivelser.feltNavne[i])
+				.setSubText("Start")
+				.setBgColor(FeltBeskrivelser.feltFarve[i])
+				.setDescription("Ved passering af start modtag 4000 kr.")
+				.build();
+				break;
 			case 20:
-				if(i == 0){
 					fields[i] = new Refuge.Builder()
-							.setTitle(FeltBeskrivelser.feltNavne[i])
-							.setSubText("Start")
-							.setBgColor(FeltBeskrivelser.feltFarve[i])
-							.build();
-				}
-				else
-					fields[i] = new Refuge.Builder()
-					.setTitle(FeltBeskrivelser.feltNavne[i])
-					.setSubText("Parkering")
-					.setBgColor(FeltBeskrivelser.feltFarve[i])
-					.setDescription(" " + FeltBeskrivelser.Leje[i][0])
-					.build();
+						.setTitle(FeltBeskrivelser.feltNavne[i])
+						.setSubText("Parkering")
+						.setBgColor(FeltBeskrivelser.feltFarve[i])
+						.setDescription("Hold en pause")
+						.build();
 				break;
 			default:
 				fields[i] = new Street.Builder()
@@ -164,12 +164,21 @@ public class GUIController {
 		return GUI.getUserString(Besked);
 	}
 	
+
 	public String vælgString(String besked, String valg1, String valg2){
 		return GUI.getUserSelection(besked, valg1, valg2);
 	}
 	
 	public String vælgString(String besked, String valg1, String valg2, String valg3){
 		return GUI.getUserSelection(besked, valg1, valg2, valg3);
+
+	public void setHus (int position, int antalHuse) {
+		GUI.setHouses(position + 1, antalHuse);
+	}
+	
+	public void setHotel (int position, boolean hotel) {
+		GUI.setHotel(position + 1, hotel);
+
 	}
 
 }
