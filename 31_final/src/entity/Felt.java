@@ -2,6 +2,10 @@ package entity;
 
 public abstract class Felt {
 	
-	String name;
+	String navn;
+
+	public String getNavn() {
+		return navn;
+	}
 
 }
