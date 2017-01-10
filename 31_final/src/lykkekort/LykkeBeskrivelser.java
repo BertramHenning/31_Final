@@ -2,7 +2,7 @@ package lykkekort;
 
 public class LykkeBeskrivelser {
 	
-	String[] Beskrivelse = {
+	public String[] Beskrivelse = {
 			
 		//Modtag	
 		"Eftergivelse af Kvartals skat: Modtag 3000 kr.",
