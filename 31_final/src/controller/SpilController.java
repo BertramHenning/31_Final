@@ -49,6 +49,7 @@ public class SpilController {
 				if(gui.spørgSandtFalsk("Vil du betale 1000 kr. for at komme ud af fængslet?")){
 					liste.tilføjKroner(tur, -1000);
 					liste.setFængsel(tur, 0);
+					gui.visPengebeholdning(liste.getNavn(tur), liste.getKroner(tur));
 				}
 			} 
 			if(liste.getFængsel(tur) == 0){
@@ -60,6 +61,8 @@ public class SpilController {
 				
 				liste.flytPosition(tur, rafle.getSum());
 				gui.flytBil(liste.getNavn(tur), liste.getPosition(tur));
+				
+				gui.visPengebeholdning(liste.getNavn(tur), liste.getKroner(tur));
 				
 				landPåFelt.landPåFelt(liste.getSpiller(tur));
 				

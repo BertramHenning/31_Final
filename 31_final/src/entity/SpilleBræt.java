@@ -62,11 +62,11 @@ public class SpilleBræt {
 	public boolean tapperier(Spiller spiller) {
 		boolean out = true;
 		Ejendom temp = (Ejendom) felter[12];
-		if (!temp.getEjer().equals(spiller)) {
+		if (temp.getEjer()!= null && !temp.getEjer().equals(spiller)) {
 			out = false;
 		}
 		temp = (Ejendom) felter[28];
-		if (!temp.getEjer().equals(spiller)) {
+		if (temp.getEjer()!= null && !temp.getEjer().equals(spiller)) {
 			out = false;
 		}
 		return out;
