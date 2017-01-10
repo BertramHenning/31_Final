@@ -70,6 +70,7 @@ public class SpilController {
 			
 			while(gui.spørgSandtFalsk("Vil du købe et hus?")){
 				bank.købHus(liste.getSpiller(tur));
+				gui.visPengebeholdning(liste.getNavn(tur), liste.getKroner(tur));
 			}
 			
 			if(liste.getKroner(tur) <= 0){

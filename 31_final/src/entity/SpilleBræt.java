@@ -122,14 +122,18 @@ public class SpilleBræt {
 				if (spiller.getKroner() > (i / 10 + 1) * 1000) {
 					if (grupperEjet(spiller)[i / 5]) {
 						Grund temp1 = (Grund) felter[i];
-						for (int j = 0; j < 40; j++) {
-							if (felter[j].getClass().getSimpleName().equals("Grund")) {
+						boolean b = true;
+						for(int j = (i/5)*5; j < (i/5)*5 + 5; j++){
+							if(felter[j].getClass().getSimpleName().equals("Grund")){
 								Grund temp2 = (Grund) felter[j];
-								if (temp2.getHuse() <= temp1.getHuse() && temp1.getHuse() < 5) {
-									temp[a] = j;
-									a++;
+								if(temp1.getHuse() > temp2.getHuse()){
+									b = false;
 								}
 							}
+						}
+						if(b){
+							temp[a] = i;
+							a++;
 						}
 					}
 				}

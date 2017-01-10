@@ -39,6 +39,9 @@ public class BankController {
 				}
 			}
 			bræt.tilføjHus(temp[a]);
+			Grund grund1 = (Grund) bræt.getFelt(temp[a]);
+			gui.setHusHotel(temp[a]+1, grund1.getHuse());
+			spiller.tilføjKroner(-(temp[a]/10+1)*1000);
 		}
 	}
 	
