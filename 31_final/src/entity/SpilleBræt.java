@@ -126,7 +126,7 @@ public class SpilleBræt {
 						for(int j = (i/5)*5; j < (i/5)*5 + 5; j++){
 							if(felter[j].getClass().getSimpleName().equals("Grund")){
 								Grund temp2 = (Grund) felter[j];
-								if(temp1.getHuse() > temp2.getHuse()){
+								if(temp1.getHuse() > temp2.getHuse()|| temp1.getHuse() > 4){
 									b = false;
 								}
 							}
