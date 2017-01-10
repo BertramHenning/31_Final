@@ -1,6 +1,7 @@
 package controller;
 
 import boundary.GUIController;
+
 import entity.Spiller;
 import lykkekort.LykkeBeskrivelser;
 
@@ -21,7 +22,7 @@ public class PrøvLykkenController {
 
 	public void blandKort() {
 		for (int i = 0; i < dæk.length; i++) {
-			float f = (float) Math.random() * 52;
+			float f = (float) Math.random() * dæk.length;
 			int a = (int) f;
 
 			int temp = dæk[i];
@@ -41,11 +42,19 @@ public class PrøvLykkenController {
 
 	public void prøvLykken(Spiller spiller) {
 		int kort = trækKort();
-		if (kort < 69) {
-			
-		} else if (kort < 420) {
+		if (kort < 12) {
+			spiller.tilføjKroner(beskrivelser.penge[kort]);
+		} else if (kort < 21) {
+			spiller.tilføjKroner(beskrivelser.penge[-kort]);
 
 		} else {
+			if(kort < 24){
+				spiller.flytPosition(beskrivelser.ryk[-kort]);
+				gui.flytBil(spiller.getNavn(), spiller.getPosition());
+			} else
+				spiller.flytPosition(beskrivelser.ryk[kort]);
+				gui.flytBil(spiller.getNavn(), spiller.getPosition());
+
 
 		}
 	}
