@@ -189,7 +189,7 @@ public class GUIController {
 	}
 
 
-	public static void visPrøvLykkenKort(String visPrøvLykken){
+	public void visPrøvLykkenKort(String visPrøvLykken){
 		GUI.displayChanceCard(visPrøvLykken);
 
 	}
