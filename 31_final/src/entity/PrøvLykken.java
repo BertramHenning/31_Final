@@ -6,4 +6,6 @@ public class PrøvLykken extends Felt {
 		super(navn);
 	}
 
+	
+	
 }
