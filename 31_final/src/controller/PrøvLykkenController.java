@@ -53,10 +53,14 @@ public class PrøvLykkenController {
 				gui.flytBil(spiller.getNavn(), spiller.getPosition());
 			} else
 				spiller.flytPosition(beskrivelser.ryk[kort]);
-				gui.flytBil(spiller.getNavn(), spiller.getPosition());
+			gui.flytBil(spiller.getNavn(), spiller.getPosition());
+
 
 
 		}
+
+		gui.visPrøvLykkenKort(beskrivelser.Beskrivelse[kort]);
+
 	}
 
 }
