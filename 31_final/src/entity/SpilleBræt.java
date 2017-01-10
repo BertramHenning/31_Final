@@ -38,19 +38,108 @@ public class SpilleBræt {
 				felter[i] = new Fri(FeltBeskrivelser.feltNavne[i]);
 				break;
 			default:
-				felter[i] = new Grund(FeltBeskrivelser.feltNavne[i], FeltBeskrivelser.feltVærdi[i], i / 5, FeltBeskrivelser.Leje[i]);
+				felter[i] = new Grund(FeltBeskrivelser.feltNavne[i], FeltBeskrivelser.feltVærdi[i], i / 5,
+						FeltBeskrivelser.Leje[i]);
 				break;
 
 			}
 		}
 	}
 
-	public Felt[] getFelter() {
-		return felter;
+	public Felt getFelt(int position) {
+		return felter[position];
 	}
 
-	public void setFelter(Felt[] felter) {
-		this.felter = felter;
+	public String getNavn(int a) {
+		return felter[a].getNavn();
+	}
+
+	public void tilføjHus(int felt) {
+		Grund a = (Grund) felter[felt];
+		a.setHuse(a.getHuse() + 1);
+	}
+
+	public boolean tapperier(Spiller spiller) {
+		boolean out = true;
+		Ejendom temp = (Ejendom) felter[12];
+		if (!temp.getEjer().equals(spiller)) {
+			out = false;
+		}
+		temp = (Ejendom) felter[28];
+		if (!temp.getEjer().equals(spiller)) {
+			out = false;
+		}
+		return out;
+	}
+
+	public int rederier(Spiller spiller) {
+		int out = 0;
+		for (int i = 0; i < 40; i++) {
+			if (felter[i].getClass().getSimpleName().equals("Rederi")) {
+				Ejendom temp = (Ejendom) felter[i];
+				if (temp.getEjer() != null && temp.getEjer().equals(spiller)) {
+					out++;
+				}
+			}
+		}
+		return out;
+	}
+
+	public boolean[] grupperEjet(Spiller spiller) {
+		int[] grupper = { 0, 0, 0, 0, 0, 0, 0, 0 };
+		boolean[] out = new boolean[8];
+		for (int i = 0; i < 40; i++) {
+			if (felter[i].getClass().getSimpleName().equals("Grund")) {
+				Grund temp = (Grund) felter[i];
+				if (temp.getEjer() != null && temp.getEjer().equals(spiller)) {
+					grupper[i / 5]++;
+				}
+			}
+		}
+		for (int i = 0; i < 8; i++) {
+			if (i == 0 || i == 7) {
+				if (grupper[i] == 2) {
+					out[i] = true;
+				} else {
+					out[i] = false;
+				}
+			} else {
+				if (grupper[i] == 3) {
+					out[i] = true;
+				} else {
+					out[i] = false;
+				}
+			}
+		}
+		return out;
+	}
+
+	public int[] kanBebygges(Spiller spiller) {
+		int[] temp = new int[22];
+		int a = 0;
+		for (int i = 0; i < 40; i++) {
+			if (felter[i].getClass().getSimpleName().equals("Grund")) {
+				if (spiller.getKroner() > (i / 10 + 1) * 1000) {
+					if (grupperEjet(spiller)[i / 5]) {
+						Grund temp1 = (Grund) felter[i];
+						for (int j = 0; j < 40; j++) {
+							if (felter[j].getClass().getSimpleName().equals("Grund")) {
+								Grund temp2 = (Grund) felter[j];
+								if (temp2.getHuse() <= temp1.getHuse() && temp1.getHuse() < 5) {
+									temp[a] = j;
+									a++;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		int[] out = new int[a];
+		for (int i = 0; i < a; i++) {
+			out[i] = temp[i];
+		}
+		return out;
 	}
 
 }
