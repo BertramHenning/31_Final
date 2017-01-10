@@ -2,6 +2,7 @@ package boundary;
 
 import desktop_fields.Field;
 
+
 import desktop_fields.Street;
 import desktop_resources.GUI;
 import desktop_fields.Chance;
@@ -14,6 +15,7 @@ import desktop_fields.Brewery;
 import desktop_fields.Jail;
 import desktop_fields.Refuge;
 import desktop_fields.Start;
+
 
 public class GUIController {
 
@@ -183,6 +185,12 @@ public class GUIController {
 			GUI.setHouses(position, antalHuse);
 
 		}
+
+	}
+
+
+	public static void visPrøvLykkenKort(String visPrøvLykken){
+		GUI.displayChanceCard(visPrøvLykken);
 
 	}
 }
