@@ -40,6 +40,10 @@ public class SpillerListe {
 	/**
 	 *Moves a specific player
 	 */
+	public void flytPosition(int player, int mængde){
+		liste[player].flytPosition(mængde);
+	}
+	
 	public void setPosition(int player, int amount) {
 		liste[player].setPosition(amount);
 	}
@@ -71,8 +75,8 @@ public class SpillerListe {
 	/**
 	 *Gets diceSum from a specific player
 	 */
-	public int getSum(int a){
-		return liste[a].getSum();
+	public int getSum(int spiller){
+		return liste[spiller].getSum();
 	}
 	
 	/**
@@ -85,11 +89,19 @@ public class SpillerListe {
 	/**
 	 *Gets name from a specific player
 	 */
-	public String getNavn(int a){
-		return liste[a].toString();
+	public String getNavn(int spiller){
+		return liste[spiller].toString();
 	}
 	
-	public Spiller getSpiller(int a){
-		return liste[a];
+	public Spiller getSpiller(int spiller){
+		return liste[spiller];
+	}
+	
+	public int getFængsel(int spiller){
+		return liste[spiller].getFængsel();
+	}
+	
+	public void setFængsel(int spiller, int fængsel){
+		liste[spiller].setFængsel(fængsel);
 	}
 }

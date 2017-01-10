@@ -128,7 +128,7 @@ public class GUIController {
 	 */
 	public void flytBil(String navn, int position){
 		GUI.removeAllCars(navn);
-		GUI.setCar(position, navn);
+		GUI.setCar(position+1, navn);
 	}
 
 	/**
@@ -165,14 +165,17 @@ public class GUIController {
 	public String spørgString(String Besked){
 		return GUI.getUserString(Besked);
 	}
-
-
-	public String vælgString(String besked, String valg1, String valg2){
-		return GUI.getUserSelection(besked, valg1, valg2);
+	
+	public void setTerning(int a, int b){
+		GUI.setDice(a, b);
 	}
-
-	public String vælgString(String besked, String valg1, String valg2, String valg3){
-		return GUI.getUserSelection(besked, valg1, valg2, valg3);
+	
+	public String vælgString(String besked, String[] valg){
+		return GUI.getUserSelection(besked, valg);	
+	}
+	
+	public void setEjer(int position, String navn){
+		GUI.setOwner(position+1, navn);
 	}
 
 

@@ -17,7 +17,9 @@ public class LandPåFeltController {
 		this.gui = gui;
 	}
 
-	public String landPåFelt(Spiller spiller, Felt felt) {
+	public String landPåFelt(Spiller spiller) {
+		int position = spiller.getPosition();
+		Felt felt = bank.getFelt(position);
 		if (felt.getClass().getSimpleName().equals("Fri")) {
 			switch (spiller.getPosition()) {
 			case 0:
@@ -40,7 +42,8 @@ public class LandPåFeltController {
 			if (spiller.getPosition() == 4) {
 				int tiProcent;
 				tiProcent = spiller.getKroner() / 10;
-				if (gui.vælgString("Hvad vil du helst betale?", "4000 kr.", tiProcent + " kr.").equals("4000 kr.")) {
+				String[] valg = {"4000 kr.", tiProcent + " kr."};
+				if (gui.vælgString("Hvad vil du helst betale?", valg).equals("4000 kr.")) {
 					spiller.tilføjKroner(-4000);
 				} else {
 					spiller.tilføjKroner(-tiProcent);
@@ -61,6 +64,7 @@ public class LandPåFeltController {
 						"Ja", "Nej")) {
 					felt1.setEjer(spiller);
 					spiller.tilføjKroner(-felt1.getPris());
+					gui.setEjer(position, spiller.getNavn());
 				}
 			} else if (felt1.getEjer() == null) {
 				GUI.showMessage("Du har ikke nok penge til at købe denne ejendom.");
@@ -68,32 +72,27 @@ public class LandPåFeltController {
 				GUI.showMessage("Du har landet på din ejen ejedom.");
 			} else {
 				if (felt.getClass().getSimpleName().equals("Tapperi")) {
-					//hej bank, har ejeren 2?
-					if(felt1.getEjer().getFængsel()== 1){
-						int a = spiller.getSum()*200;
-						felt1.getEjer().tilføjKroner(a);
-						spiller.tilføjKroner(-a);
+					int a = 0;
+					if(bank.tapperier(spiller)){
+						a = spiller.getSum()*200;
 					} else {
-						int a = spiller.getSum()*100;
-						felt1.getEjer().tilføjKroner(a);
-						spiller.tilføjKroner(-a);
+						a = spiller.getSum()*100;
 					}
+					felt1.getEjer().tilføjKroner(a);
+					spiller.tilføjKroner(-a);
 				} else if (felt.getClass().getSimpleName().equals("Rederi")) {
-					//hej bank, hvor mange har ejeren?
-					int a = 3;
-					felt1.getEjer().tilføjKroner(250 *(int) Math.pow(2, a));
+					int rederier = bank.rederier(felt1.getEjer());
+					int a = 250 *(int) Math.pow(2, rederier);
+					felt1.getEjer().tilføjKroner(a);
 					spiller.tilføjKroner(-a);
 				} else {
 					Grund felt2 = (Grund) felt1;
-					//har han alle?
-					//nej
-					if(felt2.getEjer().getFængsel()== 1){
-						int a = felt2.getLeje(0);
+					if(bank.grupperEjet(spiller)[position/5] && felt2.getHuse() == 0){
+						int a = felt2.getLeje()*2;
 						felt2.getEjer().tilføjKroner(a);
 						spiller.tilføjKroner(-a);
 					} else {
-						int huse = 3; //antal huse!!!
-						int a = felt2.getLeje(huse);
+						int a = felt2.getLeje();
 						felt2.getEjer().tilføjKroner(a);
 						spiller.tilføjKroner(-a);
 					}
