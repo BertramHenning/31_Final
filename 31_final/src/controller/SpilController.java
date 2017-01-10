@@ -46,8 +46,12 @@ public class SpilController {
 			}
 			
 			if (liste.getFængsel(tur) > 0){
-				//hvad der sker i fængsel
-			} else {
+				if(gui.spørgSandtFalsk("Vil du betale 1000 kr. for at komme ud af fængslet?")){
+					liste.tilføjKroner(tur, -1000);
+					liste.setFængsel(tur, 0);
+				}
+			} 
+			if(liste.getFængsel(tur) == 0){
 				gui.visBesked("Det er din tur " + liste.getNavn(tur)+", tryk ok for at rulle terningerne.");
 				
 				rafle.rulTerning();
