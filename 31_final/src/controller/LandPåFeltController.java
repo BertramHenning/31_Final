@@ -54,22 +54,21 @@ public class LandPåFeltController {
 			}
 
 		} else if (felt.getClass().getSimpleName().equals("PrøvLykken")) {
-			//////// LAV NOGET//////////////////
+			gui.visBesked("Du er landet på et prøv lykken felt, prøv igen imorgen");
 		} else {
 			Ejendom felt1 = (Ejendom) felt;
 			if (felt1.getEjer() == null && spiller.getKroner() > felt1.getPris()) {
 				// Lets the player buy the field if there is no owner and the
 				// player has enough coins
-				if (GUI.getUserLeftButtonPressed("Vil du købe " + felt1.getNavn() + " for " + felt1.getPris() + " kr.",
-						"Ja", "Nej")) {
+				if (gui.spørgSandtFalsk("Vil du købe " + felt1.getNavn() + " for " + felt1.getPris() + " kr.")) {
 					felt1.setEjer(spiller);
 					spiller.tilføjKroner(-felt1.getPris());
 					gui.setEjer(position, spiller.getNavn());
 				}
 			} else if (felt1.getEjer() == null) {
-				GUI.showMessage("Du har ikke nok penge til at købe denne ejendom.");
+				gui.visBesked("Du har ikke nok penge til at købe denne ejendom.");
 			} else if (felt1.getEjer().equals(spiller)) {
-				GUI.showMessage("Du har landet på din ejen ejedom.");
+				gui.visBesked("Du har landet på din ejen ejendom.");
 			} else {
 				if (felt.getClass().getSimpleName().equals("Tapperi")) {
 					int a = 0;
