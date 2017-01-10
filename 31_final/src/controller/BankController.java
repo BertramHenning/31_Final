@@ -17,12 +17,12 @@ public class BankController {
 	}
 
 	public void købHus(Spiller spiller) {
-		//////////
-		Grund test1 = (Grund) bræt.getFelt(1);
-		Grund test2 = (Grund) bræt.getFelt(3);
-		test1.setEjer(spiller);
-		test2.setEjer(spiller);
-		///////////////
+//		//////////
+//		Grund test1 = (Grund) bræt.getFelt(1);
+//		Grund test2 = (Grund) bræt.getFelt(3);
+//		test1.setEjer(spiller);
+//		test2.setEjer(spiller);
+//		///////////////
 		int[] temp = bræt.kanBebygges(spiller);
 		if (temp.length == 0) {
 			gui.visBesked("Du ejer ikke nogen grunde der kan bygges på.");
