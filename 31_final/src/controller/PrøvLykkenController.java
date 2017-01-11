@@ -7,10 +7,10 @@ import lykkekort.LykkeBeskrivelser;
 
 public class PrøvLykkenController {
 
-	GUIController gui;
-	LykkeBeskrivelser beskrivelser = new LykkeBeskrivelser();
+	private GUIController gui;
+	private LykkeBeskrivelser beskrivelser = new LykkeBeskrivelser();
 
-	int[] dæk = new int[420 + 69];
+	private int[] dæk = new int[420 + 69];
 
 	public PrøvLykkenController(GUIController gui) {
 		this.gui = gui;
