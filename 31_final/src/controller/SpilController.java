@@ -2,6 +2,8 @@ package controller;
 
 import boundary.GUIController;
 import desktop_codebehind.Car;
+import entity.Felt;
+import entity.Grund;
 import entity.RafleBægre;
 import entity.SpillerListe;
 import entity.Terning;
@@ -35,6 +37,11 @@ public class SpilController {
 			System.out.println(i);
 			gui.tilføjSpiller(liste.getNavn(i));
 		}
+		
+//		Grund felt1 = (Grund) bank.getFelt(1);
+//		Grund felt2 = (Grund) bank.getFelt(3);
+//		felt1.setEjer(liste.getSpiller(2));
+//		felt2.setEjer(liste.getSpiller(2));
 
 		int tur = 0;
 		// Hver tur
