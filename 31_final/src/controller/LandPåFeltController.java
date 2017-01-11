@@ -23,7 +23,7 @@ public class LandPåFeltController {
 		if (felt.getClass().getSimpleName().equals("Fri")) {
 			switch (spiller.getPosition()) {
 			case 0:
-				gui.visBesked("Du landede på Start!");
+				gui.visBesked("Du landede på Start og modtager 4000 kr!");
 				break;
 			case 10:
 				gui.visBesked("Du er på besøg i fængslet.");
