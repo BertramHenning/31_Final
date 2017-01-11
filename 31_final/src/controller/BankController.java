@@ -45,6 +45,17 @@ public class BankController {
 		}
 	}
 	
+	public boolean kanKøbeHus(Spiller spiller){
+		boolean out = false;
+		boolean[] kanKøbe = bræt.grupperEjet(spiller);
+		for (int i = 0; i < kanKøbe.length; i++) {
+			if(kanKøbe[i]){
+				out = true;
+			}
+		}
+		return out;
+	}
+	
 	public Felt getFelt(int position){
 		return bræt.getFelt(position);
 	}
