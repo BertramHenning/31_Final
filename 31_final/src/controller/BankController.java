@@ -8,8 +8,8 @@ import entity.Spiller;
 
 public class BankController {
 
-	SpilleBræt bræt;
-	GUIController gui;
+	private SpilleBræt bræt;
+	private GUIController gui;
 
 	public BankController(GUIController gui) {
 		this.gui = gui;
