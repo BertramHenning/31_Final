@@ -11,6 +11,7 @@ import desktop_fields.Shipping;
 
 import java.awt.Color;
 
+import desktop_codebehind.Car;
 import desktop_fields.Brewery;
 import desktop_fields.Jail;
 import desktop_fields.Refuge;
@@ -18,6 +19,20 @@ import desktop_fields.Start;
 
 
 public class GUIController {
+	
+
+	Car[] cars;
+
+	public GUIController() {
+		cars = new Car[6];
+		Color[] colors = {Color.red, Color.blue, Color.green, Color.yellow, Color.black, Color.white };
+		for (int i = 0; i < 6; i++){
+			cars[i] = new Car.Builder()
+					.primaryColor(colors[i])
+					.build();
+					
+		}
+	}
 
 	/**
 	 * Opretter spilbrættet i GUI'en
@@ -116,7 +131,10 @@ public class GUIController {
 	 * Tilføjer en spiller til GUI'en
 	 */
 	public void tilføjSpiller(String navn){
-		GUI.addPlayer(navn, 30000);
+		GUI.addPlayer(navn, 30000,cars[0]);
+		for (int i = 0; i < 5; i++) {
+			cars[i] = cars[i+1];
+		}
 	}
 
 	/**
