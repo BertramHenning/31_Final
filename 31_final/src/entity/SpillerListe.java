@@ -6,21 +6,21 @@ package entity;
 public class SpillerListe {
 	private int antalSpillere;
 
-	private Spiller[] liste;
+	private Spiller[] liste; //opretter et null array for spillere.
 
 	public SpillerListe(int antalSpillere, String[] navn) {
 		this.antalSpillere = antalSpillere;
 		liste = new Spiller[antalSpillere];
-		for (int i = 0; i < antalSpillere; i++) {
-			liste[i] = new Spiller(navn[i]);
+		for (int i = 0; i < antalSpillere; i++) { //tæller antallet af spillere
+			liste[i] = new Spiller(navn[i]); //opretter antal spillere efter i's værdi
 		}
 	}
 
 	/**
 	 *Adds coins to a specific player
 	 */
-	public void tilføjKroner(int spiller, int beløb) {
-		liste[spiller].tilføjKroner(beløb);
+	public void tilføjKroner(int spiller, int beløb) { //metode for at give et beløb til alle spilerne
+		liste[spiller].tilføjKroner(beløb); //giver kroner til alle spillere i listen
 	}
 	
 	/**
