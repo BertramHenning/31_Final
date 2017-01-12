@@ -14,6 +14,7 @@ public class PrøvLykkenController {
 	private int[] dæk = new int[21];
 
 
+	
 	public PrøvLykkenController(GUIController gui) {
 		this.gui = gui;
 		for (int i = 0; i < dæk.length; i++) {
@@ -22,6 +23,9 @@ public class PrøvLykkenController {
 		blandKort();
 	}
 
+	/**
+	 * Blander chancekortene
+	 */
 	public void blandKort() {
 		for (int i = 0; i < dæk.length; i++) {
 			float f = (float) Math.random() * dæk.length;
@@ -33,6 +37,10 @@ public class PrøvLykkenController {
 		}
 	}
 
+	/**
+	 * Lader en spiller trække et chance-kort
+	 * @return
+	 */
 	public int trækKort() {
 		int temp = dæk[0];
 		for (int i = 0; i < dæk.length - 1; i++) {
@@ -42,6 +50,10 @@ public class PrøvLykkenController {
 		return temp;
 	}
 
+	/**
+	 * Metode, der enten trækker fra eller giver penge til spilleren
+	 * @param spiller
+	 */
 	public void prøvLykken(Spiller spiller) {
 		int kort = trækKort();
 		if (kort < 12) {

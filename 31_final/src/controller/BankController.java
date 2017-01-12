@@ -15,7 +15,10 @@ public class BankController {
 		this.gui = gui;
 		bræt = new SpilleBræt();
 	}
-
+	/**
+	 * Tillader en spiller, at købe huse på sin grund såfremt spilleren ejer grunden
+	 * @param spiller
+	 */
 	public void købHus(Spiller spiller) {
 //		//////////
 //		Grund test1 = (Grund) bræt.getFelt(1);
@@ -45,6 +48,11 @@ public class BankController {
 		}
 	}
 	
+	/**
+	 * Undersøger, om spilleren er berettiget til at købe hus på sin grund
+	 * @param spiller
+	 * @return
+	 */
 	public boolean kanKøbeHus(Spiller spiller){
 		boolean out = false;
 		boolean[] kanKøbe = bræt.grupperEjet(spiller);
