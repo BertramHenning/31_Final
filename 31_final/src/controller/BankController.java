@@ -48,6 +48,38 @@ public class BankController {
 		}
 	}
 	
+	public void købEjendom(Spiller spiller){
+		int[] andresEjendomme = bræt.andresEjendomme(spiller);
+		if (andresEjendomme.length == 0) {
+			gui.visBesked("Der er ikke nogle ejendomme du kan købe.");
+		} else {
+		String[] kanKøbe = new String[andresEjendomme.length];
+		for (int i = 0; i < andresEjendomme.length; i++) {
+			kanKøbe[i] = bræt.getNavn(andresEjendomme[i]);
+		}
+		String valg = gui.vælgString("Hvilken ejendom vil du prøve at købe?", kanKøbe);
+		int a = 1;
+		for (int i = 0; i < kanKøbe.length; i++){
+			if(valg.equals(kanKøbe[i])){
+				a = i;
+			}
+		}
+		int pris = gui.spørgBeløb(bræt.getEjer(andresEjendomme[a])+ ", hvor meget skal du have for " + valg + "?", 0, 100000);
+		
+		if (spiller.getKroner() < pris){
+			gui.visBesked("Det har " + spiller + " ikke råd til at betale.");
+		} else {
+			if (gui.spørgSandtFalsk(spiller + ", vil du betale " + pris + " for " + valg + "?")){
+				bræt.getEjer(andresEjendomme[a]).tilføjKroner(pris);
+				spiller.tilføjKroner(-pris);
+				bræt.setEjer(andresEjendomme[a], spiller);
+				gui.setEjer(andresEjendomme[a], spiller.getNavn());
+				
+			}
+		}
+		}
+	}
+	
 	/**
 	 * Undersøger, om spilleren er berettiget til at købe hus på sin grund
 	 * @param spiller

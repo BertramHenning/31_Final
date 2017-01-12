@@ -97,12 +97,22 @@ public class SpilController {
 				gui.visPengebeholdning(liste.getNavn(i), liste.getKroner(i));
 			}
 			
-			if(bank.kanKøbeHus(liste.getSpiller(tur))){
-			while (gui.spørgSandtFalsk("Vil du købe et hus?")) {
-				bank.købHus(liste.getSpiller(tur));
-				gui.visPengebeholdning(liste.getNavn(tur), liste.getKroner(tur));
+			
+			while (true) {
+				String[] valg = {"Slutte din tur", "Købe et hus", "Prøve at købe en ejendom fra en anden spiller"};
+				String valgt = gui.vælgString(liste.getNavn(tur) + ",hvad vil du gøre?", valg);
+				if (valgt.equals("Slutte din tur")){
+					break;
+				}else if (valgt.equals("Købe et hus")) {
+					bank.købHus(liste.getSpiller(tur));
+				}else if (valgt.equals("Prøve at købe en ejendom fra en anden spiller")) {
+					bank.købEjendom(liste.getSpiller(tur));
+				}
+				for (int i = 0; i < liste.getPlayerAmount(); i++) {
+					gui.visPengebeholdning(liste.getNavn(i), liste.getKroner(i));
+				}
 			}
-			}
+			
 
 			if (liste.getKroner(tur) <= 0) {
 				gui.fjernBil(liste.getNavn(tur));

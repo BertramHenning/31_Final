@@ -58,15 +58,25 @@ public class SpilleBræt {
 		Grund a = (Grund) felter[felt];
 		a.setHuse(a.getHuse() + 1);
 	}
+	
+	public Spiller getEjer(int felt) {
+		Ejendom a = (Ejendom) felter[felt];
+		return a.getEjer();
+	}
+	
+	public void setEjer(int felt, Spiller spiller) {
+		Ejendom a = (Ejendom) felter[felt];
+		a.setEjer(spiller);
+	}
 
 	public boolean tapperier(Spiller spiller) {
 		boolean out = true;
 		Ejendom temp = (Ejendom) felter[12];
-		if (temp.getEjer()!= null && !temp.getEjer().equals(spiller)) {
+		if (temp.getEjer() != null && !temp.getEjer().equals(spiller)) {
 			out = false;
 		}
 		temp = (Ejendom) felter[28];
-		if (temp.getEjer()!= null && !temp.getEjer().equals(spiller)) {
+		if (temp.getEjer() != null && !temp.getEjer().equals(spiller)) {
 			out = false;
 		}
 		return out;
@@ -123,20 +133,41 @@ public class SpilleBræt {
 					if (grupperEjet(spiller)[i / 5]) {
 						Grund temp1 = (Grund) felter[i];
 						boolean b = true;
-						for(int j = (i/5)*5; j < (i/5)*5 + 5; j++){
-							if(felter[j].getClass().getSimpleName().equals("Grund")){
+						for (int j = (i / 5) * 5; j < (i / 5) * 5 + 5; j++) {
+							if (felter[j].getClass().getSimpleName().equals("Grund")) {
 								Grund temp2 = (Grund) felter[j];
-								if(temp1.getHuse() > temp2.getHuse()|| temp1.getHuse() > 4){
+								if (temp1.getHuse() > temp2.getHuse() || temp1.getHuse() > 4) {
 									b = false;
 								}
 							}
 						}
-						if(b){
+						if (b) {
 							temp[a] = i;
 							a++;
 						}
 					}
 				}
+			}
+		}
+		int[] out = new int[a];
+		for (int i = 0; i < a; i++) {
+			out[i] = temp[i];
+		}
+		return out;
+	}
+
+	public int[] andresEjendomme(Spiller spiller) {
+		int[] temp = new int[22];
+		int a = 0;
+		for (int i = 0; i < 40; i++) {
+			String type = felter[i].getClass().getSimpleName();
+			if (type.equals("Grund") || type.equals("Rederi") || type.equals("Tapperi")) {
+				Ejendom temp1 = (Ejendom) felter[i];
+				if(temp1.getEjer() != null && !temp1.getEjer().equals(spiller)){
+					temp[a] = i;
+					a++;
+				}
+
 			}
 		}
 		int[] out = new int[a];
