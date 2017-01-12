@@ -10,7 +10,7 @@ public class PrøvLykkenController {
 	GUIController gui;
 	LykkeBeskrivelser beskrivelser = new LykkeBeskrivelser();
 
-	int[] dæk = new int[420 + 69];
+	int[] dæk = new int[21];
 
 	public PrøvLykkenController(GUIController gui) {
 		this.gui = gui;
@@ -45,21 +45,22 @@ public class PrøvLykkenController {
 		if (kort < 12) {
 			spiller.tilføjKroner(beskrivelser.penge[kort]);
 		} else if (kort < 21) {
-			spiller.tilføjKroner(beskrivelser.penge[-kort]);
+			spiller.tilføjKroner(-beskrivelser.penge[kort]);
 
 		} else {
-			if(kort < 24){
-				spiller.flytPosition(beskrivelser.ryk[-kort]);
-				gui.flytBil(spiller.getNavn(), spiller.getPosition());
-			} else
-				spiller.flytPosition(beskrivelser.ryk[kort]);
-			gui.flytBil(spiller.getNavn(), spiller.getPosition());
-
+//			if(kort < 24){
+//				spiller.flytPosition(beskrivelser.ryk[-kort]);
+//				gui.flytBil(spiller.getNavn(), spiller.getPosition());
+//			} else
+//				spiller.flytPosition(beskrivelser.ryk[kort]);
+//			gui.flytBil(spiller.getNavn(), spiller.getPosition());
+//
 
 
 		}
-
+		
 		gui.visPrøvLykkenKort(beskrivelser.Beskrivelse[kort]);
+		gui.visBesked("Du trak dette prøv lykken kort:");
 
 	}
 
