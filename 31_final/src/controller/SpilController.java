@@ -1,12 +1,9 @@
 package controller;
 
 import boundary.GUIController;
-import desktop_codebehind.Car;
-import entity.Felt;
 import entity.Grund;
 import entity.RafleBægre;
 import entity.SpillerListe;
-import entity.Terning;
 
 public class SpilController {
 
@@ -26,25 +23,38 @@ public class SpilController {
 
 	public void startGame() {
 
+		/**
+		 * Laver spilbrættet på GUI'en
+		 */
 		gui.createBoard();
-
+		/**
+		 * Viser en besked om reglerne til spillerne
+		 */
 		gui.visBesked(
 				"Velkommen til Matador! I matador handler det om at købe, udleje eller sælge ejendomme så fordelagtigt, at man bliver den rigeste spiller og eventuelt eneste matador. Man begynder ved Start og flytter bilerne venstre om ifølge terningekast. Når en spillers brik ender på et felt, der ikke allerede ejes af nogen, kan han købe det af banken og indkassere leje af modstanderne, der standser dér. Lejesummen forøges betydeligt ved opførelse af huse og hoteller. For at skaffe flere penge kan man pantsætte grunde til banken. Felterne 'Prøv lykken' giver ret til at trække et kort, hvis ordre derefter må følges.");
 
 		tilføjSpiller();
-		// Adds all the players to the gui
+		/**
+		 * Tilføjer spillere til GUI'en
+		 */
 		for (int i = 0; i < liste.getPlayerAmount(); i++) {
 			System.out.println(i);
 			gui.tilføjSpiller(liste.getNavn(i));
 		}
 		
+//		//hus køb test
 //		Grund felt1 = (Grund) bank.getFelt(1);
 //		Grund felt2 = (Grund) bank.getFelt(3);
 //		felt1.setEjer(liste.getSpiller(2));
 //		felt2.setEjer(liste.getSpiller(2));
+//		gui.setEjer(1, liste.getNavn(2));
+//		gui.setEjer(1, liste.getNavn(2));
 
 		int tur = 0;
-		// Hver tur
+		
+		/**
+		 * Hver tur
+		 */
 		while (true) {
 			if (liste.getPlayerAmount() == 1) {
 				gui.visBesked("Du vandt!");
@@ -87,12 +97,22 @@ public class SpilController {
 				gui.visPengebeholdning(liste.getNavn(i), liste.getKroner(i));
 			}
 			
-			if(bank.kanKøbeHus(liste.getSpiller(tur))){
-			while (gui.spørgSandtFalsk("Vil du købe et hus?")) {
-				bank.købHus(liste.getSpiller(tur));
-				gui.visPengebeholdning(liste.getNavn(tur), liste.getKroner(tur));
+			
+			while (true) {
+				String[] valg = {"Slutte din tur", "Købe et hus", "Prøve at købe en ejendom fra en anden spiller"};
+				String valgt = gui.vælgString(liste.getNavn(tur) + ",hvad vil du gøre?", valg);
+				if (valgt.equals("Slutte din tur")){
+					break;
+				}else if (valgt.equals("Købe et hus")) {
+					bank.købHus(liste.getSpiller(tur));
+				}else if (valgt.equals("Prøve at købe en ejendom fra en anden spiller")) {
+					bank.købEjendom(liste.getSpiller(tur));
+				}
+				for (int i = 0; i < liste.getPlayerAmount(); i++) {
+					gui.visPengebeholdning(liste.getNavn(i), liste.getKroner(i));
+				}
 			}
-			}
+			
 
 			if (liste.getKroner(tur) <= 0) {
 				gui.fjernBil(liste.getNavn(tur));

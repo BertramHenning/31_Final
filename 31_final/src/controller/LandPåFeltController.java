@@ -1,7 +1,6 @@
 package controller;
 
 import boundary.GUIController;
-import desktop_resources.GUI;
 import entity.Ejendom;
 import entity.Felt;
 import entity.Grund;
@@ -11,12 +10,19 @@ public class LandPåFeltController {
 
 	private BankController bank;
 	private GUIController gui;
+	private PrøvLykkenController prøvLykken;
 
 	public LandPåFeltController(BankController bank, GUIController gui) {
 		this.bank = bank;
 		this.gui = gui;
+		prøvLykken = new PrøvLykkenController(gui);
 	}
-
+	
+	/**
+	 * 
+	 * @param spiller
+	 * @return
+	 */
 	public String landPåFelt(Spiller spiller) {
 		int position = spiller.getPosition();
 		Felt felt = bank.getFelt(position);
@@ -32,7 +38,7 @@ public class LandPåFeltController {
 				gui.visBesked("Gratis Parkering.");
 				break;
 			case 30:
-				gui.visBesked("Du har lavet ballade, puhaaaaa, i fængsel med dig!!!");
+				gui.visBesked("Politiet fangede dem, de fængsles.");
 				spiller.setPosition(10);
 				gui.flytBil(spiller.getNavn(), spiller.getPosition());
 				spiller.setFængsel(1);
@@ -54,7 +60,8 @@ public class LandPåFeltController {
 			}
 
 		} else if (felt.getClass().getSimpleName().equals("PrøvLykken")) {
-			gui.visBesked("Du er landet på et prøv lykken felt, prøv igen imorgen");
+//			gui.visBesked("Du er landet på et prøv lykken felt, prøv igen imorgen");
+			prøvLykken.prøvLykken(spiller);
 		} else {
 			Ejendom felt1 = (Ejendom) felt;
 			if (felt1.getEjer() == null && spiller.getKroner() > felt1.getPris()) {

@@ -10,8 +10,11 @@ public class PrøvLykkenController {
 	private GUIController gui;
 	private LykkeBeskrivelser beskrivelser = new LykkeBeskrivelser();
 
-	private int[] dæk = new int[420 + 69];
 
+	private int[] dæk = new int[21];
+
+
+	
 	public PrøvLykkenController(GUIController gui) {
 		this.gui = gui;
 		for (int i = 0; i < dæk.length; i++) {
@@ -20,6 +23,9 @@ public class PrøvLykkenController {
 		blandKort();
 	}
 
+	/**
+	 * Blander chancekortene
+	 */
 	public void blandKort() {
 		for (int i = 0; i < dæk.length; i++) {
 			float f = (float) Math.random() * dæk.length;
@@ -31,6 +37,10 @@ public class PrøvLykkenController {
 		}
 	}
 
+	/**
+	 * Lader en spiller trække et chance-kort
+	 * @return
+	 */
 	public int trækKort() {
 		int temp = dæk[0];
 		for (int i = 0; i < dæk.length - 1; i++) {
@@ -40,26 +50,31 @@ public class PrøvLykkenController {
 		return temp;
 	}
 
+	/**
+	 * Metode, der enten trækker fra eller giver penge til spilleren
+	 * @param spiller
+	 */
 	public void prøvLykken(Spiller spiller) {
 		int kort = trækKort();
 		if (kort < 12) {
 			spiller.tilføjKroner(beskrivelser.penge[kort]);
 		} else if (kort < 21) {
-			spiller.tilføjKroner(beskrivelser.penge[-kort]);
+			spiller.tilføjKroner(-beskrivelser.penge[kort]);
 
 		} else {
-			if(kort < 24){
-				spiller.flytPosition(beskrivelser.ryk[-kort]);
-				gui.flytBil(spiller.getNavn(), spiller.getPosition());
-			} else
-				spiller.flytPosition(beskrivelser.ryk[kort]);
-			gui.flytBil(spiller.getNavn(), spiller.getPosition());
-
+//			if(kort < 24){
+//				spiller.flytPosition(-beskrivelser.ryk[kort]);
+//				gui.flytBil(spiller.getNavn(), spiller.getPosition());
+//			} else
+//				spiller.flytPosition(beskrivelser.ryk[kort]);
+//			gui.flytBil(spiller.getNavn(), spiller.getPosition());
+//
 
 
 		}
-
+		
 		gui.visPrøvLykkenKort(beskrivelser.Beskrivelse[kort]);
+		gui.visBesked("Du trak dette prøv lykken kort:");
 
 	}
 
