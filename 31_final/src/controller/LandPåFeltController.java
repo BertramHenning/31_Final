@@ -17,7 +17,12 @@ public class LandPåFeltController {
 		this.gui = gui;
 		prøvLykken = new PrøvLykkenController(gui);
 	}
-
+	
+	/**
+	 * 
+	 * @param spiller
+	 * @return
+	 */
 	public String landPåFelt(Spiller spiller) {
 		int position = spiller.getPosition();
 		Felt felt = bank.getFelt(position);
