@@ -49,7 +49,7 @@ public class PrøvLykkenController {
 
 		} else {
 //			if(kort < 24){
-//				spiller.flytPosition(beskrivelser.ryk[-kort]);
+//				spiller.flytPosition(-beskrivelser.ryk[kort]);
 //				gui.flytBil(spiller.getNavn(), spiller.getPosition());
 //			} else
 //				spiller.flytPosition(beskrivelser.ryk[kort]);
