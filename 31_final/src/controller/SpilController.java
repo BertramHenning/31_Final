@@ -40,6 +40,7 @@ public class SpilController {
 		for (int i = 0; i < liste.getPlayerAmount(); i++) {
 			System.out.println(i);
 			gui.tilføjSpiller(liste.getNavn(i));
+			gui.flytBil(liste.getNavn(i), 0);
 		}
 		
 //		//hus køb test
@@ -63,18 +64,25 @@ public class SpilController {
 
 			if (liste.getFængsel(tur) > 0) {
 				String[] valg = { "Betal 1000 kr.", "Prøv at slå 2 ens." };
-				String valgt = gui.vælgString("Vil du betale 1000 kr. for at komme ud af fængslet?", valg);
+				String valgt = gui.vælgString("Hvordan vil du komme ud af fængslet?", valg);
 				if(valgt.equals("Betal 1000 kr.")){
 					liste.tilføjKroner(tur, -1000);
 					liste.setFængsel(tur, 0);
-					gui.visPengebeholdning(liste.getNavn(tur), liste.getKroner(tur));
 				} else{
 					rafle.rulTerning();
 					gui.setTerning(rafle.getTerningSlag(0), rafle.getTerningSlag(1));
 					if (rafle.getTerningSlag(0)==rafle.getTerningSlag(1)){
 						liste.setFængsel(tur, 0);
+					} else {
+						liste.setFængsel(tur, liste.getFængsel(tur) + 1);
+						if (liste.getFængsel(tur) > 3) {
+							gui.visBesked("Du har ikke flere forsøg tilbage, betal 1000 kr.");
+						}
 					}
 				}
+				
+
+			gui.visPengebeholdning(liste.getNavn(tur), liste.getKroner(tur));
 
 			}
 			if (liste.getFængsel(tur) == 0) {
@@ -99,12 +107,14 @@ public class SpilController {
 			
 			
 			while (true) {
-				String[] valg = {"Slutte din tur", "Købe et hus", "Prøve at købe en ejendom fra en anden spiller"};
-				String valgt = gui.vælgString(liste.getNavn(tur) + ",hvad vil du gøre?", valg);
+				String[] valg = {"Slutte din tur", "Købe et hus", "Sælge et hus", "Prøve at købe en ejendom fra en anden spiller"};
+				String valgt = gui.vælgString(liste.getNavn(tur) + ", hvad vil du gøre?", valg);
 				if (valgt.equals("Slutte din tur")){
 					break;
 				}else if (valgt.equals("Købe et hus")) {
 					bank.købHus(liste.getSpiller(tur));
+				}else if (valgt.equals("Sælge et hus")) {
+					bank.sælgHus(liste.getSpiller(tur));
 				}else if (valgt.equals("Prøve at købe en ejendom fra en anden spiller")) {
 					bank.købEjendom(liste.getSpiller(tur));
 				}
