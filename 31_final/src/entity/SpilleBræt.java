@@ -198,8 +198,7 @@ public class SpilleBræt {
 		int[] temp = new int[22];
 		int a = 0;
 		for (int i = 0; i < 40; i++) {
-			String type = felter[i].getClass().getSimpleName();
-			if (type.equals("Grund")) {
+			if (felter[i].getClass().getSimpleName().equals("Grund")) {
 				Grund temp1 = (Grund) felter[i];
 				if(temp1.getHuse() > 0){
 					temp[a] = i;
@@ -213,6 +212,34 @@ public class SpilleBræt {
 			out[i] = temp[i];
 		}
 		return out;
+	}
+
+	public int[] fjernSpiller(Spiller spiller) {
+		int[] temp = new int[22];
+		int a = 0;
+		for (int i = 0; i < 40; i++) {
+			String type = felter[i].getClass().getSimpleName();
+			if (type.equals("Grund") || type.equals("Rederi") || type.equals("Tapperi")) {
+				Ejendom temp1 = (Ejendom) felter[i];
+				if (temp1.getEjer() != null && temp1.getEjer().equals(spiller)) {
+					temp[a] = i;
+					a++;
+					temp1.setEjer(null);
+					if (type.equals("Grund")){
+						Grund temp2 = (Grund) temp1;
+						temp2.setHuse(0);
+					}
+					
+					
+				}
+			}
+		}
+		int[] out = new int[a];
+		for (int i = 0; i < a; i++) {
+			out[i] = temp[i];
+		}
+		return out;
+		
 	}
 
 }

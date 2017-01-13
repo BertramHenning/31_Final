@@ -96,6 +96,15 @@ public class BankController {
 		}
 	}
 	
+	public void fjernSpiller(Spiller spiller){
+		int[] fjern = bræt.fjernSpiller(spiller);
+		for (int i = 0; i < fjern.length; i++) {
+			gui.setHusHotel(fjern[i], 0);
+			gui.fjernEjer(fjern[i]);
+			
+		}
+	}
+	
 	/**
 	 * Undersøger, om spilleren er berettiget til at købe hus på sin grund
 	 * @param spiller
