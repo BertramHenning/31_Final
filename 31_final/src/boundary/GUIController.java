@@ -214,6 +214,10 @@ public class GUIController {
 	public void setEjer(int position, String navn){
 		GUI.setOwner(position+1, navn);
 	}
+	
+	public void fjernEjer(int position){
+		GUI.removeOwner(position + 1);
+	}
 
 	/**
 	 * Sætter huse og hoteller på spilbrættet
@@ -223,10 +227,10 @@ public class GUIController {
 	public void setHusHotel (int position, int antalHuse){
 
 		if (antalHuse > 4){
-			GUI.setHotel(position, true);
+			GUI.setHotel(position+1, true);
 		}
 		else {
-			GUI.setHouses(position, antalHuse);
+			GUI.setHouses(position+1, antalHuse);
 
 		}
 

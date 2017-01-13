@@ -67,7 +67,7 @@ public class LandPåFeltController {
 			if (felt1.getEjer() == null && spiller.getKroner() > felt1.getPris()) {
 				// Lets the player buy the field if there is no owner and the
 				// player has enough coins
-				if (gui.spørgSandtFalsk("Vil du købe " + felt1.getNavn() + " for " + felt1.getPris() + " kr.")) {
+				if (gui.spørgSandtFalsk("Vil du købe " + felt1.getNavn() + " for " + felt1.getPris() + " kr?")) {
 					felt1.setEjer(spiller);
 					spiller.tilføjKroner(-felt1.getPris());
 					gui.setEjer(position, spiller.getNavn());

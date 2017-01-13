@@ -3,7 +3,7 @@ package entity;
 public class Spiller {
 	
 	private String navn;
-	private int position = 0, ekstraTur, fængsel, sum;
+	private int position = 0, ekstraTur = 0, fængsel, sum;
 	
 	private Konto kroner;
 	

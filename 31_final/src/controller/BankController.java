@@ -20,12 +20,6 @@ public class BankController {
 	 * @param spiller
 	 */
 	public void købHus(Spiller spiller) {
-//		//////////
-//		Grund test1 = (Grund) bræt.getFelt(1);
-//		Grund test2 = (Grund) bræt.getFelt(3);
-//		test1.setEjer(spiller);
-//		test2.setEjer(spiller);
-//		///////////////
 		int[] temp = bræt.kanBebygges(spiller);
 		if (temp.length == 0) {
 			gui.visBesked("Du ejer ikke nogen grunde der kan bygges på.");
@@ -41,10 +35,32 @@ public class BankController {
 					a = i;
 				}
 			}
-			bræt.tilføjHus(temp[a]);
+			bræt.ændreHus(temp[a], 1);
 			Grund grund1 = (Grund) bræt.getFelt(temp[a]);
-			gui.setHusHotel(temp[a]+1, grund1.getHuse());
+			gui.setHusHotel(temp[a], grund1.getHuse());
 			spiller.tilføjKroner(-(temp[a]/10+1)*1000);
+		}
+	}
+	public void sælgHus(Spiller spiller) {
+		int[] temp = bræt.harHus(spiller);
+		if (temp.length == 0) {
+			gui.visBesked("Du ejer ikke nogen huse der kan sælges.");
+		} else {
+			String[] harHus = new String[temp.length];
+			for (int i = 0; i < temp.length; i++) {
+				harHus[i] = bræt.getNavn(temp[i]);
+			}
+			String valg = gui.vælgString("Hvilken grund vil du sælge et hus fra?", harHus);
+			int a = 1;
+			for (int i = 0; i < harHus.length; i++){
+				if(valg.equals(harHus[i])){
+					a = i;
+				}
+			}
+			bræt.ændreHus(temp[a], -1);
+			Grund grund1 = (Grund) bræt.getFelt(temp[a]);
+			gui.setHusHotel(temp[a], grund1.getHuse());
+			spiller.tilføjKroner((temp[a]/10+1)*500);
 		}
 	}
 	
@@ -80,6 +96,15 @@ public class BankController {
 		}
 	}
 	
+	public void fjernSpiller(Spiller spiller){
+		int[] fjern = bræt.fjernSpiller(spiller);
+		for (int i = 0; i < fjern.length; i++) {
+			gui.setHusHotel(fjern[i], 0);
+			gui.fjernEjer(fjern[i]);
+			
+		}
+	}
+	
 	/**
 	 * Undersøger, om spilleren er berettiget til at købe hus på sin grund
 	 * @param spiller
@@ -111,5 +136,6 @@ public class BankController {
 	public int rederier(Spiller spiller){
 		return bræt.rederier(spiller);
 	}
+	
 
 }
