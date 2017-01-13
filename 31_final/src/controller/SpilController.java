@@ -129,10 +129,12 @@ public class SpilController {
 				liste.removePlayer(tur);
 			}
 
-			if (liste.getExtraTur(tur) > 1) {
+			if (rafle.getTerningSlag(0) == rafle.getTerningSlag(1) && liste.getExtraTur(tur) > 1) {
 				gui.visBesked("Politiet fangede dem efter at have kørt for hurtigt, de fængsles");
 				liste.setFængsel(tur, 1);
 				liste.setExtraTur(tur, 0);
+				liste.setPosition(tur, 10);
+				gui.flytBil(liste.getNavn(tur), liste.getPosition(tur));
 				tur++;
 				if (tur >= liste.getPlayerAmount()) {
 					tur = 0;
