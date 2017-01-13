@@ -42,17 +42,17 @@ public class SpilController {
 			gui.tilføjSpiller(liste.getNavn(i));
 			gui.flytBil(liste.getNavn(i), 0);
 		}
-		
-//		//hus køb test
-//		Grund felt1 = (Grund) bank.getFelt(1);
-//		Grund felt2 = (Grund) bank.getFelt(3);
-//		felt1.setEjer(liste.getSpiller(2));
-//		felt2.setEjer(liste.getSpiller(2));
-//		gui.setEjer(1, liste.getNavn(2));
-//		gui.setEjer(1, liste.getNavn(2));
+
+		// //hus køb test
+		// Grund felt1 = (Grund) bank.getFelt(1);
+		// Grund felt2 = (Grund) bank.getFelt(3);
+		// felt1.setEjer(liste.getSpiller(2));
+		// felt2.setEjer(liste.getSpiller(2));
+		// gui.setEjer(1, liste.getNavn(2));
+		// gui.setEjer(1, liste.getNavn(2));
 
 		int tur = 0;
-		
+
 		/**
 		 * Hver tur
 		 */
@@ -65,13 +65,13 @@ public class SpilController {
 			if (liste.getFængsel(tur) > 0) {
 				String[] valg = { "Betal 1000 kr.", "Prøv at slå 2 ens." };
 				String valgt = gui.vælgString("Hvordan vil du komme ud af fængslet?", valg);
-				if(valgt.equals("Betal 1000 kr.")){
+				if (valgt.equals("Betal 1000 kr.")) {
 					liste.tilføjKroner(tur, -1000);
 					liste.setFængsel(tur, 0);
-				} else{
+				} else {
 					rafle.rulTerning();
 					gui.setTerning(rafle.getTerningSlag(0), rafle.getTerningSlag(1));
-					if (rafle.getTerningSlag(0)==rafle.getTerningSlag(1)){
+					if (rafle.getTerningSlag(0) == rafle.getTerningSlag(1)) {
 						liste.setFængsel(tur, 0);
 					} else {
 						liste.setFængsel(tur, liste.getFængsel(tur) + 1);
@@ -80,9 +80,8 @@ public class SpilController {
 						}
 					}
 				}
-				
 
-			gui.visPengebeholdning(liste.getNavn(tur), liste.getKroner(tur));
+				gui.visPengebeholdning(liste.getNavn(tur), liste.getKroner(tur));
 
 			}
 			if (liste.getFængsel(tur) == 0) {
@@ -104,36 +103,52 @@ public class SpilController {
 			for (int i = 0; i < liste.getPlayerAmount(); i++) {
 				gui.visPengebeholdning(liste.getNavn(i), liste.getKroner(i));
 			}
-			
-			
+
 			while (true) {
-				String[] valg = {"Slutte din tur", "Købe et hus", "Sælge et hus", "Prøve at købe en ejendom fra en anden spiller"};
+				String[] valg = { "Slutte din tur", "Købe et hus", "Sælge et hus",
+						"Prøve at købe en ejendom fra en anden spiller" };
 				String valgt = gui.vælgString(liste.getNavn(tur) + ", hvad vil du gøre?", valg);
-				if (valgt.equals("Slutte din tur")){
+				if (valgt.equals("Slutte din tur")) {
 					break;
-				}else if (valgt.equals("Købe et hus")) {
+				} else if (valgt.equals("Købe et hus")) {
 					bank.købHus(liste.getSpiller(tur));
-				}else if (valgt.equals("Sælge et hus")) {
+				} else if (valgt.equals("Sælge et hus")) {
 					bank.sælgHus(liste.getSpiller(tur));
-				}else if (valgt.equals("Prøve at købe en ejendom fra en anden spiller")) {
+				} else if (valgt.equals("Prøve at købe en ejendom fra en anden spiller")) {
 					bank.købEjendom(liste.getSpiller(tur));
 				}
 				for (int i = 0; i < liste.getPlayerAmount(); i++) {
 					gui.visPengebeholdning(liste.getNavn(i), liste.getKroner(i));
 				}
 			}
-			
 
 			if (liste.getKroner(tur) <= 0) {
 				gui.fjernBil(liste.getNavn(tur));
-				gui.visBesked("du tabte");
+				gui.visBesked(liste.getNavn(tur) + ", du tabte");
+				bank.fjernSpiller(liste.getSpiller(tur));
 				liste.removePlayer(tur);
 			}
 
-			tur++;
-			if (tur >= liste.getPlayerAmount()) {
-				tur = 0;
+			if (liste.getExtraTur(tur) > 1) {
+				gui.visBesked("Politiet fangede dem efter at have kørt for hurtigt, de fængsles");
+				liste.setFængsel(tur, 1);
+				liste.setExtraTur(tur, 0);
+				tur++;
+				if (tur >= liste.getPlayerAmount()) {
+					tur = 0;
+				}
+			} 
+			if (rafle.getTerningSlag(0) == rafle.getTerningSlag(1) && liste.getFængsel(tur) == 0) {
+				liste.setExtraTur(tur, liste.getExtraTur(tur) + 1);
+				
+			} else { 
+				liste.setExtraTur(tur, 0);
+				tur++;
+				if (tur >= liste.getPlayerAmount()) {
+					tur = 0;
+				}
 			}
+			
 		}
 
 	}

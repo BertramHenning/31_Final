@@ -104,4 +104,12 @@ public class SpillerListe {
 	public void setFængsel(int spiller, int fængsel){
 		liste[spiller].setFængsel(fængsel);
 	}
+	
+	public int getExtraTur(int spiller){
+		return liste[spiller].getEkstraTur();
+	}
+	
+	public void setExtraTur(int spiller, int ekstra){
+		liste[spiller].setEkstraTur(ekstra);
+	}
 }
