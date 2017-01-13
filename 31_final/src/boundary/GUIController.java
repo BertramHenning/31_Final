@@ -223,10 +223,10 @@ public class GUIController {
 	public void setHusHotel (int position, int antalHuse){
 
 		if (antalHuse > 4){
-			GUI.setHotel(position, true);
+			GUI.setHotel(position+1, true);
 		}
 		else {
-			GUI.setHouses(position, antalHuse);
+			GUI.setHouses(position+1, antalHuse);
 
 		}
 

@@ -58,9 +58,9 @@ public class SpilleBræt {
  * @param felt
  * Tilføjer et hus til et bestemt felt
  */
-	public void tilføjHus(int felt) { 
-		Grund a = (Grund) felter[felt]; //Sætter en grund til et felt
-		a.setHuse(a.getHuse() + 1); //sætter værdien til at tælle fra 1
+	public void ændreHus(int felt, int b) { 
+		Grund a = (Grund) felter[felt]; //Caster fæltet til en Grund
+		a.setHuse(a.getHuse() + b); //sætter værdien til at tælle fra 1
 	}
   
   	public Spiller getEjer(int felt) {
@@ -174,13 +174,34 @@ public class SpilleBræt {
 	}
 
 	public int[] andresEjendomme(Spiller spiller) {
-		int[] temp = new int[22];
+		int[] temp = new int[28];
 		int a = 0;
 		for (int i = 0; i < 40; i++) {
 			String type = felter[i].getClass().getSimpleName();
 			if (type.equals("Grund") || type.equals("Rederi") || type.equals("Tapperi")) {
 				Ejendom temp1 = (Ejendom) felter[i];
 				if(temp1.getEjer() != null && !temp1.getEjer().equals(spiller)){
+					temp[a] = i;
+					a++;
+				}
+
+			}
+		}
+		int[] out = new int[a];
+		for (int i = 0; i < a; i++) {
+			out[i] = temp[i];
+		}
+		return out;
+	}
+
+	public int[] harHus(Spiller spiller) {
+		int[] temp = new int[22];
+		int a = 0;
+		for (int i = 0; i < 40; i++) {
+			String type = felter[i].getClass().getSimpleName();
+			if (type.equals("Grund")) {
+				Grund temp1 = (Grund) felter[i];
+				if(temp1.getHuse() > 0){
 					temp[a] = i;
 					a++;
 				}
