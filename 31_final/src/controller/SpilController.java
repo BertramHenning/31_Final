@@ -127,6 +127,7 @@ public class SpilController {
 				gui.visBesked(liste.getNavn(tur) + ", du tabte");
 				bank.fjernSpiller(liste.getSpiller(tur));
 				liste.removePlayer(tur);
+				tur--;
 			}
 
 			if (rafle.getTerningSlag(0) == rafle.getTerningSlag(1) && liste.getExtraTur(tur) > 1) {
