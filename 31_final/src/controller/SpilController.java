@@ -38,7 +38,6 @@ public class SpilController {
 		 * Tilføjer spillere til GUI'en
 		 */
 		for (int i = 0; i < liste.getPlayerAmount(); i++) {
-			System.out.println(i);
 			gui.tilføjSpiller(liste.getNavn(i));
 			gui.flytBil(liste.getNavn(i), 0);
 		}
@@ -76,6 +75,8 @@ public class SpilController {
 						liste.setFængsel(tur, liste.getFængsel(tur) + 1);
 						if (liste.getFængsel(tur) > 3) {
 							gui.visBesked("Du har ikke flere forsøg tilbage, betal 1000 kr.");
+							liste.tilføjKroner(tur, -1000);
+							liste.setFængsel(tur, 0);
 						}
 					}
 				}
