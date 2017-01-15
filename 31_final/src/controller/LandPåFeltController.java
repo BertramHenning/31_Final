@@ -93,7 +93,7 @@ public class LandPåFeltController {
 					spiller.tilføjKroner(-a);
 				} else {
 					Grund felt2 = (Grund) felt1;
-					if(bank.grupperEjet(spiller)[position/5] && felt2.getHuse() == 0){
+					if(bank.grupperEjet(felt2.getEjer())[position/5] && felt2.getHuse() == 0){
 						int a = felt2.getLeje()*2;
 						felt2.getEjer().tilføjKroner(a);
 						spiller.tilføjKroner(-a);
