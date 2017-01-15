@@ -125,6 +125,9 @@ public class SpilController {
 				bank.fjernSpiller(liste.getSpiller(tur));
 				liste.removePlayer(tur);
 				tur--;
+				if (tur < 0){
+					tur =liste.getPlayerAmount();
+				}
 			}
 
 			if (rafle.getTerningSlag(0) == rafle.getTerningSlag(1) && liste.getExtraTur(tur) > 1) {
