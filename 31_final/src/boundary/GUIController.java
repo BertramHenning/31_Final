@@ -5,6 +5,7 @@ import desktop_fields.Field;
 
 import desktop_fields.Street;
 import desktop_resources.GUI;
+import entity.FeltBeskrivelser;
 import desktop_fields.Chance;
 import desktop_fields.Tax;
 import desktop_fields.Shipping;

@@ -1,7 +1,5 @@
 package entity;
 
-import boundary.FeltBeskrivelser;
-
 public class SpilleBræt {
 
 	private Felt[] felter = new Felt[40]; //opretter et array med 40 feltpladser, som udgør spillebrættet.
