@@ -2,6 +2,11 @@ package boundary;
 
 import java.awt.Color;
 
+/**
+ * Opretter feltbeskrivelserne i et array, som spilbrættet kan bruge
+ * @author ChristopherChytraeus
+ *
+ */
 public class FeltBeskrivelser {
 	// Laver et array med felt navne
 	public static String[] feltNavne = {

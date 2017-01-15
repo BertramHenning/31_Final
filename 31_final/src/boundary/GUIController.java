@@ -11,6 +11,7 @@ import desktop_fields.Shipping;
 
 import java.awt.Color;
 
+import desktop_codebehind.Car;
 import desktop_fields.Brewery;
 import desktop_fields.Jail;
 import desktop_fields.Refuge;
@@ -18,7 +19,24 @@ import desktop_fields.Start;
 
 
 public class GUIController {
+	
 
+	Car[] cars;
+
+	public GUIController() {
+		cars = new Car[6];
+		Color[] colors = {Color.red, Color.blue, Color.green, Color.yellow, Color.black, Color.white };
+		for (int i = 0; i < 6; i++){
+			cars[i] = new Car.Builder()
+					.primaryColor(colors[i])
+					.build();
+					
+		}
+	}
+
+	/**
+	 * Opretter spilbrættet i GUI'en
+	 */
 	public void createBoard(){
 		Field[] fields = new Field[40];
 
@@ -113,7 +131,10 @@ public class GUIController {
 	 * Tilføjer en spiller til GUI'en
 	 */
 	public void tilføjSpiller(String navn){
-		GUI.addPlayer(navn, 30000);
+		GUI.addPlayer(navn, 30000,cars[0]);
+		for (int i = 0; i < 5; i++) {
+			cars[i] = cars[i+1];
+		}
 	}
 
 	/**
@@ -166,32 +187,59 @@ public class GUIController {
 		return GUI.getUserString(Besked);
 	}
 	
+	/**
+	 * Viser terningerne på spilbrættet
+	 * @param a
+	 * @param b
+	 */
 	public void setTerning(int a, int b){
 		GUI.setDice(a, b);
 	}
 	
+	/**
+	 * 
+	 * @param besked
+	 * @param valg
+	 * @return
+	 */
 	public String vælgString(String besked, String[] valg){
 		return GUI.getUserSelection(besked, valg);	
 	}
 	
+	/**
+	 * Gør en spiller til ejer af en grund
+	 * @param position
+	 * @param navn
+	 */
 	public void setEjer(int position, String navn){
 		GUI.setOwner(position+1, navn);
 	}
+	
+	public void fjernEjer(int position){
+		GUI.removeOwner(position + 1);
+	}
 
-
+	/**
+	 * Sætter huse og hoteller på spilbrættet
+	 * @param position
+	 * @param antalHuse
+	 */
 	public void setHusHotel (int position, int antalHuse){
 
 		if (antalHuse > 4){
-			GUI.setHotel(position, true);
+			GUI.setHotel(position+1, true);
 		}
 		else {
-			GUI.setHouses(position, antalHuse);
+			GUI.setHouses(position+1, antalHuse);
 
 		}
 
 	}
 
-
+	/**
+	 * Viser Chance-kort på GUI'en
+	 * @param visPrøvLykken
+	 */
 	public void visPrøvLykkenKort(String visPrøvLykken){
 		GUI.displayChanceCard(visPrøvLykken);
 
