@@ -58,7 +58,7 @@ public class SpilController {
 		 */
 		while (true) {
 			if (liste.getPlayerAmount() == 1) {
-				gui.visBesked("Du vandt!");
+				gui.visBesked(liste.getNavn(tur) + " , Du vandt!");
 				break;
 			}
 
