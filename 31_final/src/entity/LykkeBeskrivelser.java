@@ -28,28 +28,8 @@ public class LykkeBeskrivelser {
 		"Nye dæk: Betal 1000 kr.",
 		"Tandlægeregning: Betal 2000 kr.",
 		"Cigaret told: Betal 200 kr.",
-
-		//Ryk
-		"Gå i fængsel: Flyt til fængsel og modtag ikke 4000 kr. ved passering af start.",
-		"Gå i fængsel: Flyt til fængsel og modtag ikke 4000 kr. ved passering af start.",
-		"Ryk tre felter tilbage.",
-		"Ryk tre felter tilbage.",
-		"Ryk til Frederiksberg Allé og modtag 4000 kr. ved passering af start.",
-		"Ryk til Mols-Linien og modtag 4000 kr. ved passering af start.",
-		"Ryk tre felter frem.",
-		"Ryk til Strandvejen og modtag 4000 kr. ved passering af start.",
-		"Ryk til den nærmeste færge og modtag 4000 kr. ved passering af start.",
-		"Ryk til det nærmeste rederi og betal ejeren to gange leje. Hvis der ingen ejer er, kan feltet købes.",
-		"Ryk til det nærmeste rederi og betal ejeren to gange leje. Hvis der ingen ejer er, kan feltet købes.",
-		"Ryk frem til Grønningen og modtag 4000 kr. ved passering af start.",
-		"Ryk frem til Start",
-		"Ryk frem til Start",
-		"Ryk frem til Rådhuspladsen.",
-		"Ryk frem til Vimmelskaftet og modtag 4000 kr. ved passering af start.",
-		
 	};
 	
-	// kun ca 24, dem med modtag og betal til banken
 	public int[] penge = {
 			
 			// modtag
@@ -76,13 +56,5 @@ public class LykkeBeskrivelser {
 			1000,
 			2000,
 			200,
-	};
-	
-	public int[] ryk = {
-			
-			// Antal felter, der skal rykkes
-			3,
-			3,
-			3,
 	};
 }

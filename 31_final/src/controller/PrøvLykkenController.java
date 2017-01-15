@@ -57,17 +57,9 @@ public class PrøvLykkenController {
 		int kort = trækKort();
 		if (kort < 12) {
 			spiller.tilføjKroner(beskrivelser.penge[kort]);
-		} else if (kort < 21) {
-			spiller.tilføjKroner(-beskrivelser.penge[kort]);
-
+		
 		} else {
-//			if(kort < 24){
-//				spiller.flytPosition(-beskrivelser.ryk[kort]);
-//				gui.flytBil(spiller.getNavn(), spiller.getPosition());
-//			} else
-//				spiller.flytPosition(beskrivelser.ryk[kort]);
-//			gui.flytBil(spiller.getNavn(), spiller.getPosition());
-//
+			spiller.tilføjKroner(-beskrivelser.penge[kort]);
 
 
 		}
