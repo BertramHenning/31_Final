@@ -86,11 +86,8 @@ public class SpilController {
 
 				liste.flytPosition(tur, rafle.getSum());
 				gui.flytBil(liste.getNavn(tur), liste.getPosition(tur));
-
-				gui.visPengebeholdning(liste.getNavn(tur), liste.getKroner(tur));
-
+				
 				landPåFelt.landPåFelt(liste.getSpiller(tur));
-
 			}
 
 			for (int i = 0; i < liste.getPlayerAmount(); i++) {
