@@ -23,15 +23,12 @@ public class LykkeBeskrivelser {
 		"Reparation af vogn: Betal 3000 kr.",
 		"Rødt lys bøde: Betal 1000 kr.",
 		"2 kasser øl: Betal 200 kr.",
-//		"Olie prisstigning: Betal 500 kr. pr. hus og 2000 kr. pr. hotel.",
 		"Parkeringsbøde: Betal 200 kr.",
 		"Bilforsikring: Betal 1000 kr.",
 		"Nye dæk: Betal 1000 kr.",
 		"Tandlægeregning: Betal 2000 kr.",
 		"Cigaret told: Betal 200 kr.",
-//		"Ejendomsskat stigning: Betal 800 kr. pr. hus og 2300 kr. pr. hotel.",
-//		"Ejendomsskat stigning: Betal 800 kr. pr. hus og 2300 kr. pr. hotel.",
-		
+
 		//Ryk
 		"Gå i fængsel: Flyt til fængsel og modtag ikke 4000 kr. ved passering af start.",
 		"Gå i fængsel: Flyt til fængsel og modtag ikke 4000 kr. ved passering af start.",
@@ -74,15 +71,11 @@ public class LykkeBeskrivelser {
 			3000,
 			1000,
 			200,
-			//500 pr hus 2000 pr hotel,
 			200,
 			1000,
 			1000,
 			2000,
 			200,
-			//800 pr hus 2300 pr hotel,
-			//800 pr hus 2300 pr hotel,
-			
 	};
 	
 	public int[] ryk = {
