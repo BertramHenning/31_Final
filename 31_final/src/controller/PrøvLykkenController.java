@@ -1,9 +1,8 @@
 package controller;
 
 import boundary.GUIController;
-
+import entity.LykkeBeskrivelser;
 import entity.Spiller;
-import lykkekort.LykkeBeskrivelser;
 
 public class PrøvLykkenController {
 

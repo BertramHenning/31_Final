@@ -1,4 +1,4 @@
-package lykkekort;
+package entity;
 
 public class LykkeBeskrivelser {
 	
