@@ -52,7 +52,6 @@ public class SpilController {
 		// gui.setEjer(1, liste.getNavn(2));
 
 		int tur = 0;
-
 		/**
 		 * Hver tur
 		 */
