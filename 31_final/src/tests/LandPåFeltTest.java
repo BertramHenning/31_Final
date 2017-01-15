@@ -41,7 +41,7 @@ public class LandPåFeltTest {
 	 * Tester om man betaler dobbelt så meget for at lande på en grund hvor ejeren ejer hele gruppen
 	 */
 	@Test
-	public void test() {
+	public void testEjerAlleGrunde() {
 		int expected = 29850;
 		((Grund) bank.getFelt(1)).setEjer(spiller1);
 		spiller2.setPosition(1);
@@ -51,6 +51,27 @@ public class LandPåFeltTest {
 		landPåFelt.landPåFelt(spiller2);
 		int actual = spiller2.getKroner();
 		assertEquals(""+actual,expected, actual);
+	}
+	
+
+	@Test
+	public void testFireTusind() {
+		spiller1.setPosition(4);
+		gui.visBesked("Klik ok");
+		landPåFelt.landPåFelt(spiller1);
+		int expected = 26000;
+		int actual = spiller1.getKroner();
+		assertEquals(expected, actual);
+		}
+		
+	@Test
+	public void testtiProcent() {
+		spiller1.setPosition(4);
+		gui.visBesked("Vælg nederste");
+		landPåFelt.landPåFelt(spiller1);
+		int expected = 27000;
+		int actual = spiller1.getKroner();
+		assertEquals(expected, actual);
 	}
 
 }
