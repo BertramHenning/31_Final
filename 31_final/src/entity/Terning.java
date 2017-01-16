@@ -14,8 +14,8 @@ public class Terning {
 	public void rul() {
 		float d1 = (float) Math.random();
 		float d2 = d1 * 6;
-		int d3 = (int) d2; //Laver værdien til en int
-		værdi = d3 + 1; //lægger en til, da den laveste værdi er 0. 
+		int d3 = (int) d2; 
+		værdi = d3 + 1; 
 	}
 
 	public int getVærdi() {

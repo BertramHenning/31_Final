@@ -1,44 +1,43 @@
 package entity;
 
 /**
- * Keeps track of a list of players
+ * Holder styr på en liste a Spiller objekter
  */
 public class SpillerListe {
 	private int antalSpillere;
 
-	private Spiller[] liste; //opretter et null array for spillere.
-
+	private Spiller[] liste; 
 	public SpillerListe(int antalSpillere, String[] navn) {
 		this.antalSpillere = antalSpillere;
 		liste = new Spiller[antalSpillere];
-		for (int i = 0; i < antalSpillere; i++) { //tæller antallet af spillere
-			liste[i] = new Spiller(navn[i]); //opretter antal spillere efter i's værdi
+		for (int i = 0; i < antalSpillere; i++) { 
+			liste[i] = new Spiller(navn[i]); //Opretter spillere med hver deres navn
 		}
 	}
 
 	/**
-	 *Adds coins to a specific player
+	 *Tilføjer kroner til en spiller
 	 */
 	public void tilføjKroner(int spiller, int beløb) { //metode for at give et beløb til alle spilerne
 		liste[spiller].tilføjKroner(beløb); //giver kroner til alle spillere i listen
 	}
 	
 	/**
-	 *Gets coins from a specific player
+	 *får antal kroner fra en spiller
 	 */
 	public int getKroner(int player) {
 		return liste[player].getKroner();
 	}
 	
 	/**
-	 *Gets position from a specific player
+	 *Får position fra en spiller
 	 */
 	public int getPosition(int player) {
 		return liste[player].getPosition();
 	}
 
 	/**
-	 *Moves a specific player
+	 *Flytter en spiller fremad med en mængde
 	 */
 	public void flytPosition(int player, int mængde){
 		liste[player].flytPosition(mængde);
@@ -49,7 +48,7 @@ public class SpillerListe {
 	}
 	
 	/**
-	 *Removes a player from the list and makes i shorter
+	 *Fjerner en spiller fra listen og laver listen 1 kortere
 	 */
 	public void removePlayer(int player){
 		Spiller[] newlist = new Spiller[antalSpillere-1];
@@ -72,22 +71,20 @@ public class SpillerListe {
 		this.antalSpillere = playerAmount;
 	}
 	
-	/**
-	 *Gets diceSum from a specific player
-	 */
+	
 	public int getSum(int spiller){
 		return liste[spiller].getSum();
 	}
 	
 	/**
-	 *Sets diceSum of a specific player
+	 *Sætter en spillers sum
 	 */
 	public void setSum(int player, int sum){
 		liste[player].setSum(sum);
 	}
 	
 	/**
-	 *Gets name from a specific player
+	 *Får en spillers navn
 	 */
 	public String getNavn(int spiller){
 		return liste[spiller].toString();

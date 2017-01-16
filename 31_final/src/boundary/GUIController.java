@@ -25,6 +25,7 @@ public class GUIController {
 	Car[] cars;
 
 	public GUIController() {
+		//laver 6 forskellige biler
 		cars = new Car[6];
 		Color[] colors = {Color.red, Color.blue, Color.green, Color.yellow, Color.black, Color.white };
 		for (int i = 0; i < 6; i++){
@@ -190,18 +191,13 @@ public class GUIController {
 	
 	/**
 	 * Viser terningerne på spilbrættet
-	 * @param a
-	 * @param b
 	 */
 	public void setTerning(int a, int b){
 		GUI.setDice(a, b);
 	}
 	
 	/**
-	 * 
-	 * @param besked
-	 * @param valg
-	 * @return
+	 * får en spiller til at vælge en String fra en liste
 	 */
 	public String vælgString(String besked, String[] valg){
 		return GUI.getUserSelection(besked, valg);	
@@ -209,21 +205,20 @@ public class GUIController {
 	
 	/**
 	 * Gør en spiller til ejer af en grund
-	 * @param position
-	 * @param navn
 	 */
 	public void setEjer(int position, String navn){
 		GUI.setOwner(position+1, navn);
 	}
 	
+	/**
+	 * fjerner en spiller som ejer af en grund
+	 */
 	public void fjernEjer(int position){
 		GUI.removeOwner(position + 1);
 	}
 
 	/**
 	 * Sætter huse og hoteller på spilbrættet
-	 * @param position
-	 * @param antalHuse
 	 */
 	public void setHusHotel (int position, int antalHuse){
 
@@ -238,8 +233,7 @@ public class GUIController {
 	}
 
 	/**
-	 * Viser Chance-kort på GUI'en
-	 * @param visPrøvLykken
+	 * Viser lykke-kort på GUI'en
 	 */
 	public void visPrøvLykkenKort(String visPrøvLykken){
 		GUI.displayChanceCard(visPrøvLykken);

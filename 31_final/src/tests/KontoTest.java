@@ -44,28 +44,6 @@ public class KontoTest {
 		assertEquals(expected, actual);		
 	}
 
-	@Test
-	public void testFireTusind() {
-		
-		
-		testSpiller.setPosition(4);
-		int expected = 26000;
-		testKonto.tilføjKroner(-4000);
-		int actual = testKonto.getKroner();
-		assertEquals(expected, actual);
-		}
-		
-	@Test
-	public void testtiProcent() {
-		
-		int tiProcent;
-		testSpiller.setPosition(4);
-		tiProcent = testKonto.getKroner() / 10;
-		int expected = 27000;
-		testKonto.tilføjKroner(-tiProcent);
-		int actual = testKonto.getKroner();
-		assertEquals(expected, actual);
-	}
 
 
 }
