@@ -17,7 +17,6 @@ public class BankController {
 	}
 	/**
 	 * Tillader en spiller, at købe huse på sin grund såfremt spilleren ejer grunden
-	 * @param spiller
 	 */
 	public void købHus(Spiller spiller) {
 		int[] temp = bræt.kanBebygges(spiller);
@@ -41,6 +40,10 @@ public class BankController {
 			spiller.tilføjKroner(-(temp[a]/10+1)*1000);
 		}
 	}
+	
+	/**
+	 * lader en spiller sælge et hus hvis han ejer en grund med mindst et hus
+	 */
 	public void sælgHus(Spiller spiller) {
 		int[] temp = bræt.harHus(spiller);
 		if (temp.length == 0) {
@@ -64,6 +67,9 @@ public class BankController {
 		}
 	}
 	
+	/**
+	 * lader en spiller købe en ejendom fra en anden spiller hvis han tillader det
+	 */
 	public void købEjendom(Spiller spiller){
 		int[] andresEjendomme = bræt.andresEjendomme(spiller);
 		if (andresEjendomme.length == 0) {
@@ -96,6 +102,9 @@ public class BankController {
 		}
 	}
 	
+	/**
+	 * fjerner en spiller fra spillet på gui og spillebræt
+	 */
 	public void fjernSpiller(Spiller spiller){
 		int[] fjern = bræt.fjernSpiller(spiller);
 		for (int i = 0; i < fjern.length; i++) {
@@ -107,8 +116,6 @@ public class BankController {
 	
 	/**
 	 * Undersøger, om spilleren er berettiget til at købe hus på sin grund
-	 * @param spiller
-	 * @return
 	 */
 	public boolean kanKøbeHus(Spiller spiller){
 		boolean out = false;

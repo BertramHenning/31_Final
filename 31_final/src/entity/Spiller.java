@@ -5,24 +5,29 @@ public class Spiller {
 	private String navn;
 	private int position = 0, ekstraTur = 0, fængsel, sum;
 	
-	private Konto kroner;
+	private Konto konto;
 	
 	public Spiller(String a){
 		navn = a;
-		kroner = new Konto();
+		konto = new Konto();
 	}
-		
-	public void flytPosition(int mængde){ //Metode til at flytte spilleren frem på brættet
-		this.position += mængde; //Finder position baseret på nuværende position og summen af terningeslagene (mængde).
-		if(this.position > 39){ //Regel for når man er passeret felt nr. 40 i spillet
-			this.position = this.position - 40; //Gør at man er tilbage på felt 1
+	
+	/**
+	 * Flytter spilleren fremad
+	 */
+	public void flytPosition(int mængde){ 
+		this.position += mængde; 
+		if(this.position > 39){ 
+			this.position = this.position - 40; //Gør at man starter forfra på spillebrættet når man rykker over felt 39
 			tilføjKroner(4000); //4000 kr for at passere startfeltet.
 		}
 	}
 	
-	
-	public void tilføjKroner(int a){ //funktion for at tilføje kroner til spilleren.
-		kroner.tilføjKroner(a); //tilføjer spilleren en mængde kroner.
+	/**
+	 * Tilføjer kroner til spilleren
+	 */
+	public void tilføjKroner(int a){ 
+		konto.tilføjKroner(a); 
 	}
 
 	public String getNavn() {
@@ -58,7 +63,7 @@ public class Spiller {
 	}
 
 	public int getKroner() {
-		return kroner.getKroner();
+		return konto.getKroner();
 	}
 
 	public int getSum() {

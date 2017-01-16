@@ -53,7 +53,10 @@ public class LandPåFeltTest {
 		assertEquals(""+actual,expected, actual);
 	}
 	
-
+	
+	/**
+	 * Tester om spillet tager 4000 kr fra spilleren når han vælger 4000
+	 */
 	@Test
 	public void testFireTusind() {
 		spiller1.setPosition(4);
@@ -63,7 +66,10 @@ public class LandPåFeltTest {
 		int actual = spiller1.getKroner();
 		assertEquals(expected, actual);
 		}
-		
+	
+	/**
+	 * Tester om spillet tager 3000 kr fra spilleren når han vælger den nederste 
+	 */	
 	@Test
 	public void testtiProcent() {
 		spiller1.setPosition(4);

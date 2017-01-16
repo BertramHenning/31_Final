@@ -12,10 +12,13 @@ public class Konto {
 		return Kroner;
 	}
 	
+	/**
+	 * lægger kroner til men sikrer at den ikke går under nul
+	 */
 	public void tilføjKroner(int Kroner){
-		this.Kroner += Kroner; //lægger et bestemt beløb oven i spillerens nuværende saldo.
-		if(this.Kroner < 0) //if-sætning, som tjekker om spillerens konto er positiv eller 0.
-			this.Kroner = 0; //Sætter den til at være 0, da alt under resulterer i bankerot.
+		this.Kroner += Kroner; 
+		if(this.Kroner < 0) 
+			this.Kroner = 0; 
 	}
 
 }

@@ -38,7 +38,6 @@ public class PrøvLykkenController {
 
 	/**
 	 * Lader en spiller trække et chance-kort
-	 * @return
 	 */
 	public int trækKort() {
 		int temp = dæk[0];

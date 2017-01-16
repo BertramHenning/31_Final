@@ -19,11 +19,9 @@ public class LandPåFeltController {
 	}
 	
 	/**
-	 * 
-	 * @param spiller
-	 * @return
+	 * gør hvad der sker nå man lander på et felt
 	 */
-	public String landPåFelt(Spiller spiller) {
+	public void landPåFelt(Spiller spiller) {
 		int position = spiller.getPosition();
 		Felt felt = bank.getFelt(position);
 		if (felt.getClass().getSimpleName().equals("Fri")) {
@@ -60,13 +58,11 @@ public class LandPåFeltController {
 			}
 
 		} else if (felt.getClass().getSimpleName().equals("PrøvLykken")) {
-//			gui.visBesked("Du er landet på et prøv lykken felt, prøv igen imorgen");
 			prøvLykken.prøvLykken(spiller);
 		} else {
 			Ejendom felt1 = (Ejendom) felt;
+			//hvis ejendommen kan købes
 			if (felt1.getEjer() == null && spiller.getKroner() > felt1.getPris()) {
-				// Lets the player buy the field if there is no owner and the
-				// player has enough coins
 				if (gui.spørgSandtFalsk("Vil du købe " + felt1.getNavn() + " for " + felt1.getPris() + " kr?")) {
 					felt1.setEjer(spiller);
 					spiller.tilføjKroner(-felt1.getPris());
@@ -76,7 +72,7 @@ public class LandPåFeltController {
 				gui.visBesked("Du har ikke nok penge til at købe denne ejendom.");
 			} else if (felt1.getEjer().equals(spiller)) {
 				gui.visBesked("Du har landet på din ejen ejendom.");
-			} else {
+			} else { //hvis spilleren skal give penge til en anden spiller
 				if (felt.getClass().getSimpleName().equals("Tapperi")) {
 					int a = 0;
 					if(bank.tapperier(spiller)){
@@ -107,7 +103,6 @@ public class LandPåFeltController {
 			}
 
 		}
-		return "måske ikke string som return alligevel";
 	}
 
 }
