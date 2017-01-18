@@ -3,6 +3,7 @@ package controller;
 import boundary.GUIController;
 import entity.Grund;
 import entity.RafleBægre;
+import entity.RafleSnyd;
 import entity.SpillerListe;
 
 public class SpilController {
@@ -11,13 +12,17 @@ public class SpilController {
 	private SpillerListe liste;
 	private BankController bank;
 	private LandPåFeltController landPåFelt;
-	private RafleBægre rafle;
+	
+	//private RafleBægre rafle;
+	private RafleSnyd rafle;
 
 	public SpilController() {
 		gui = new GUIController();
 		bank = new BankController(gui);
 		landPåFelt = new LandPåFeltController(bank, gui);
-		rafle = new RafleBægre(2);
+		
+		//rafle = new RafleBægre(2);
+		rafle = new RafleSnyd(2);
 
 	}
 
